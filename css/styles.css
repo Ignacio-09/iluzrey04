@@ -1,0 +1,2240 @@
+/* ===========================================
+   GLOBAL RESET
+=========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+
+canvas {
+pointer-events: none;
+}
+
+
+/* ===========================================
+   BASE TYPOGRAPHY & COLORS
+=========================================== */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a;
+    color: #f1f5f9;
+    line-height: 1.6;
+}
+
+/* Container utility */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* ===========================================
+   PARTICLES BACKGROUND
+=========================================== */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* ===========================================
+   NAVBAR
+=========================================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #1f2937;
+    z-index: 1000;
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.9rem;
+
+    color: #38bdf8;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    display: flex;
+    align-items: center;
+
+    transition: all 0.3s ease;
+}
+
+/* efecto sutil tipo tech */
+.logo:hover {
+    color: #7dd3fc;
+    text-shadow: 
+        0 0 5px rgba(56,189,248,0.6),
+        0 0 10px rgba(56,189,248,0.4);
+}
+.logo::after {
+    content: "_";
+    margin-left: 4px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+.nav-links a {
+    text-decoration: none;
+    color: #f1f5f9;
+    font-weight: 500;
+    transition: color 0.3s;
+        font-size: 1.1rem;
+    padding: 8px 0;
+}
+.nav-links li{
+    list-style: none;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+}
+
+.nav-links a.active {
+    color: #38bdf8;
+}
+
+/* botón hamburguesa */
+.hamburger{
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1100;
+}
+
+.hamburger span{
+    width: 26px;
+    height: 3px;
+    background: #38bdf8;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* animación a X */
+
+.hamburger.active span:nth-child(1){
+    transform: rotate(45deg) translate(5px,5px);
+}
+
+.hamburger.active span:nth-child(2){
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3){
+    transform: rotate(-45deg) translate(6px,-6px);
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 900px){
+
+    .hamburger{
+        display: flex;
+    }
+
+    .nav-links{
+        position: fixed;
+        top: 0;
+        right: -100%;
+
+        height: 100vh;
+        width: 260px;
+
+        background: #0f172a;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: flex-start;
+
+        padding-top: 100px;
+        gap: 1.5rem;
+
+        overflow-y: auto;
+
+        transition: right 0.4s ease;
+    }
+
+    .nav-links.active{
+        right: 0;
+    }
+
+}
+
+
+.navbar .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* ===========================================
+   HERO SECTION
+=========================================== */
+.hero {
+    padding: 120px 0;
+}
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+.hero-text h2 { font-size: 40px; margin-bottom: 10px; }
+.subtitle {
+    color: #38bdf8;
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 15px;
+}
+.hero-description { color: #94a3b8; margin-bottom: 25px; max-width: 450px; }
+.hero-image img {
+    width: 220px;
+    border-radius: 50%;
+    border: 3px solid #38bdf8;
+    box-shadow: 0 0 20px rgba(56,189,248,0.4);
+}
+.hero-buttons { display: flex; gap: 15px; }
+
+/* Buttons */
+.btn-primary {
+    background: #38bdf8;
+    color: #0f172a;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.btn-primary:hover { background: #0ea5e9; }
+.btn-secondary {
+    border: 1px solid #38bdf8;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #38bdf8;
+    transition: 0.3s;
+}
+.btn-secondary:hover {
+    background: #38bdf8;
+    color: #0f172a;
+}
+
+/* Responsive hero */
+@media (max-width: 900px){
+
+    .hero-content{
+        flex-direction: column;
+        text-align: center;
+        gap: 4rem;
+    }
+
+}
+
+@media (max-width: 900px){
+
+    .hero-image img{
+        max-width: 220px;
+        margin: 0 auto;
+        display: block;
+    }
+
+}
+
+
+#sobre-mi{
+    margin-top: 4rem;
+    scroll-margin-top: 90px
+    
+}
+
+
+/* ===========================================
+   LEGACY SECTION
+=========================================== */
+/* ===========================
+   Legacy Section
+=========================== */
+
+.legacy{
+    padding: 100px 10%;
+}
+
+.legacy-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+/* Imagen */
+
+.legacy-image{
+    display:flex;
+    justify-content:center;
+}
+
+.legacy-image img{
+    max-width:320px;
+    width:100%;
+    animation: floatDino 4s ease-in-out infinite;
+    transition: transform .3s;
+}
+
+.legacy-image img:hover{
+    transform:scale(1.08);
+}
+
+/* Animación flotante */
+
+@keyframes floatDino{
+
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-12px);}
+    100%{transform:translateY(0px);}
+
+}
+
+/* Texto */
+
+.legacy-text{
+    max-width:520px;
+}
+
+.legacy-text h2{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.legacy-text p{
+    line-height:1.7;
+    margin-bottom:16px;
+    color:#b8b8b8;
+}
+
+/* ===========================
+   TERMINAL EFFECT
+=========================== */
+
+.legacy-terminal{
+
+    background:#0f1720;
+    border:1px solid #1f2a35;
+    border-radius:8px;
+    padding:16px;
+    margin:25px 0;
+
+    font-family:monospace;
+    font-size:.9rem;
+    color:#00ff9c;
+
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+/* typing effect */
+
+.legacy-terminal span{
+    opacity:.8;
+}
+
+.legacy-terminal span{
+    display:block;
+    font-family: monospace;
+    white-space: nowrap;
+}
+
+.cursor{
+    display:inline-block;
+    width:8px;
+    margin-left:3px;
+    background:#00ff9c;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink{
+
+    0%{opacity:1;}
+    50%{opacity:0;}
+    100%{opacity:1;}
+
+}
+
+/* ===========================
+   TECH TIMELINE
+=========================== */
+
+.legacy-tech{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.legacy-tech span{
+
+    padding:6px 12px;
+    font-size:.8rem;
+
+    border:1px solid #2c3b4b;
+    border-radius:20px;
+
+    background:#111821;
+    color:#9fb3c8;
+}
+
+/* ===========================
+   Highlight phrase
+=========================== */
+
+.legacy-highlight{
+
+    margin-top:10px;
+    font-style:italic;
+    font-weight:500;
+
+    border-left:3px solid #00adb5;
+    padding-left:14px;
+
+    color:#ffffff;
+}
+/* ===========================================
+   EXPERIENCIA TIMELINE
+=========================================== */
+#experiencia { padding: 80px 20px; background-color: #0f172a; }
+#experiencia h2 { text-align: center; margin-bottom: 60px; }
+/* =========================
+   TIMELINE BASE
+========================= */
+
+/* =========================
+   TIMELINE BASE
+========================= */
+
+.timeline{
+    position: relative;
+    max-width: 1000px;
+    margin: 60px auto;
+}
+
+/* línea central */
+
+.timeline::before{
+
+    content:"";
+    position:absolute;
+
+    left:50%;
+    top:0;
+
+    transform:translateX(-50%);
+
+    width:3px;
+
+    height:0;
+
+    background:linear-gradient(
+        to bottom,
+        #00adb5,
+        #393e46
+    );
+
+    transition:height 1.5s ease;
+
+}
+
+.timeline.animate::before{
+
+    height:100%;
+
+}
+
+.timeline-item{
+
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+}
+
+/* izquierda */
+
+.timeline-item:nth-child(odd){
+
+    left: 0;
+    text-align: right;
+
+}
+
+/* derecha */
+
+.timeline-item:nth-child(even){
+
+    left: 50%;
+
+}
+
+.timeline-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:35px;
+
+    width:14px;
+    height:14px;
+
+    background:#00adb5;
+
+    border-radius:50%;
+
+    box-shadow:0 0 10px #00adb5;
+
+}
+
+/* posición nodo */
+
+.timeline-item:nth-child(odd)::before{
+
+    right:-7px;
+
+}
+
+.timeline-item:nth-child(even)::before{
+
+    left:-7px;
+
+}
+
+.timeline-content{
+
+    background:#111821;
+
+    padding:20px 25px;
+
+    border-radius:10px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+    transition:transform .3s ease;
+}
+
+.timeline-content:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.timeline-item{
+
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
+
+}
+
+.timeline-item.visible{
+
+    opacity:1;
+    transform:translateY(0);
+
+}
+
+@media(max-width:768px){
+
+.timeline::before{
+
+left:20px;
+
+}
+
+.timeline-item{
+
+width:100%;
+padding-left:60px;
+padding-right:20px;
+
+}
+
+.timeline-item:nth-child(odd),
+.timeline-item:nth-child(even){
+
+left:0;
+text-align:left;
+
+}
+
+.timeline-item::before{
+
+left:13px;
+
+}
+
+}
+
+.timeline-cobol{
+    display:flex;
+    justify-content:center;
+}
+
+.cobol-moment{
+
+    text-align:center;
+    padding:25px;
+
+    position:relative;
+}
+
+.cobol-moment img{
+
+    max-width:220px;
+    width:100%;
+
+    border-radius:12px;
+
+    border:2px solid #00adb5;
+
+    box-shadow:
+        0 0 10px #00adb5,
+        0 0 25px rgba(0,173,181,.4);
+
+    transition:all .35s ease;
+
+    animation:cobolFloat 4s ease-in-out infinite;
+
+}
+
+.cobol-moment img:hover{
+
+    transform:scale(1.08) rotate(-1deg);
+
+    box-shadow:
+        0 0 15px #00adb5,
+        0 0 35px rgba(0,173,181,.6);
+
+}
+
+.cobol-caption{
+
+    margin-top:12px;
+
+    font-size:.85rem;
+
+    color:#94a3b8;
+
+    font-style:italic;
+
+}
+.cobol-moment::after{
+
+    content:"COBOL UNLOCKED";
+
+    position:absolute;
+
+    top:-10px;
+    right:10px;
+
+    font-size:.65rem;
+
+    padding:4px 8px;
+
+    border-radius:20px;
+
+    background:#00adb5;
+    color:#0f1720;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+}
+
+.timeline-cobol img{
+
+    animation:cobolAppear 1s ease;
+
+}
+
+@keyframes cobolAppear{
+
+    0%{
+        opacity:0;
+        transform:scale(.8);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+.experience-counter{
+
+    text-align:center;
+
+    margin-top:10px;
+    margin-bottom:40px;
+
+}
+
+.experience-counter span{
+
+    font-size:2.5rem;
+    font-weight:600;
+
+    color:#00adb5;
+
+}
+
+.timeline-tech span{
+
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    background:#0f1720;
+
+    color:#2c3744;   /* COLOR MÁS CLARO */
+
+    font-size:.85rem;
+
+    border:1px solid #1f2a35;
+
+    transition:all .3s ease;
+
+}
+
+.timeline-tech span:hover{
+
+    transform:translateY(-3px);
+
+    background:#00adb5;
+
+    color:#ffffff;
+
+}
+
+
+
+/* Reveal animation */
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===========================================
+   HABILIDADES
+=========================================== */
+#habilidades { padding: 80px 20px; background-color: #020617; }
+#habilidades h2 { text-align: center; margin-bottom: 50px; }
+.skills-container {
+    max-width: 700px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+/* ===========================================
+   HABILIDADES - MEJORA VISUAL
+=========================================== */
+
+.skill-category {
+
+    background: #1e293b;
+    color: #e2e8f0;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    border: 1px solid #1f2937;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+.skill-category::before {
+    background: #38bdf8;
+}
+
+.skill-category:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+
+}
+
+.skill-category h3 {
+
+    margin-bottom: 20px;
+
+    color: #38bdf8;
+
+}
+
+/* Skills chips */
+
+.skill {
+
+    background: #0f172a;
+
+    border: 1px solid #1f2937;
+
+    color: #cbd5f5;
+
+    padding: 8px 12px;
+
+    border-radius: 20px;
+
+    font-size: 0.9rem;
+
+}
+
+.skill:hover {
+
+    background: #1e293b;
+
+    transform: scale(1.05);
+
+}
+
+/* Tarjeta de habilidades blandas ocupa dos columnas */
+.soft-skills{
+    grid-column: span 2;
+}
+
+@media (max-width: 768px){
+    .soft-skills{
+        grid-column: span 1;
+    }
+}
+
+
+
+/* ===========================================
+   PROYECTOS
+=========================================== */
+#proyectos { margin-top: 80px; max-width: 1100px; margin-left: auto; margin-right: auto; padding: 0 20px; }
+
+#proyectos{
+
+    position:relative;
+    overflow:hidden;
+    scroll-margin-top: 90px
+}
+
+.cobol-background{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+
+    opacity:0.06;
+
+    font-family:monospace;
+
+    color:#00ff9c;
+
+    display:flex;
+    flex-wrap:wrap;
+
+    line-height:18px;
+
+    z-index:0;
+
+}
+.cobol-background{
+
+    animation:cobolScroll 40s linear infinite;
+
+}
+
+@keyframes cobolScroll{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    100%{
+
+        transform:translateY(-50%);
+
+    }
+
+}
+
+.projects-container{
+
+    position:relative;
+    z-index:1;
+
+}
+
+
+.projects-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+    margin-top:40px;
+
+}
+
+.project-card{
+
+    background:#111821;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    border:1px solid #1f2a35;
+
+    transition:all .35s ease;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+.project-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#00adb5;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+}
+
+.project-visual{
+
+    margin:20px 0;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    font-family:monospace;
+
+    font-size:.85rem;
+
+    text-align:center;
+
+}
+
+.cobol-visual{
+
+    background:#0f1720;
+
+    color:#00ff9c;
+
+    border:1px solid #1f2a35;
+
+    animation:cobolProcess 2s infinite;
+
+}
+
+@keyframes cobolProcess{
+
+    0%{opacity:.4;}
+    50%{opacity:1;}
+    100%{opacity:.4;}
+
+}
+
+.analysis-visual{
+
+    background:#0f1720;
+
+    color:#7dd3fc;
+
+    border:1px dashed #3b82f6;
+
+}
+
+.portfolio-visual{
+
+    background:#0f1720;
+
+    color:#fbbf24;
+
+    border:1px solid #fbbf24;
+
+}
+
+
+.project-card h3 { color: #80858f; margin-bottom: 10px; }
+.project-card p { color: #4b5563; font-size: 0.95rem; margin-bottom: 15px; }
+.project-tech { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; }
+.project-tech span {
+    background: #e2e8f0;
+    color: #1f2937;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* ===========================================
+   SOBRE MI
+=========================================== */
+#sobre-mi { margin-top: 100px; max-width: 1100px; margin-left: auto; margin-right: auto; padding: 20px; }
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 40px;
+}
+/* ===========================================
+   ABOUT IMAGE - DEVELOPER PORTRAIT STYLE
+=========================================== */
+
+.about-image img {
+
+    width: 100%;
+    max-width: 280px;
+
+    border-radius: 20px;
+
+    border: 2px solid #38bdf8;
+
+    filter: contrast(1.05) brightness(1.05);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.45),
+        0 0 20px rgba(56,189,248,0.15);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+}
+
+/* Hover effect */
+
+.about-image img:hover {
+
+    transform: translateY(-5px) scale(1.02);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.55),
+        0 0 30px rgba(56,189,248,0.25);
+
+}
+
+
+.about-text p {
+
+    margin-bottom: 16px;
+
+    color: #cbd5f5;
+
+    line-height: 1.7;
+
+    font-size: 0.96rem;
+
+}  
+
+.about-stats { display: flex; gap: 30px; margin-top: 20px; }
+.stat h3 { font-size: 1.5rem; color: #3b82f6; }
+.stat span {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+/* ===========================================
+   TECNOLOGÍAS
+=========================================== */
+#tecnologias { padding: 80px 20px; background-color: #0f172a; }
+#tecnologias h2 { text-align: center; margin-bottom: 50px; }
+
+#tecnologias{
+    position:relative;
+}
+
+#tecnologias::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size:40px 40px;
+    pointer-events:none;
+}
+
+
+.tech-subtitle{
+    text-align:center;
+    max-width:600px;
+    margin:10px auto 40px;
+    font-size:14px;
+    color:var(--text-secondary);
+}
+
+
+
+.tech-wrapper { max-width: 900px; margin: auto; }
+.tech-group { margin-bottom: 50px; }
+
+.tech-group h3{
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:15px;
+    color:var(--accent);
+}
+
+.tech-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+
+.tech-card{
+
+    position:relative;
+
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.01)
+    );
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:12px;
+
+    padding:20px;
+
+    text-align:center;
+
+    transition:all .3s ease;
+
+}
+.tech-card i{
+    font-size:36px;
+    margin-bottom:10px;
+    transition:transform .3s ease;
+}
+
+.tech-card:hover i{
+    transform:scale(1.15);
+}
+.tech-card p{
+    font-size:14px;
+    color:var(--text-secondary);
+}
+
+.tech-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:var(--accent);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.4),
+        0 0 10px rgba(0,255,170,0.2);
+
+}
+
+.tech-card{
+    position:relative;
+}
+
+.tech-card{
+
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,0.04),
+        rgba(255,255,255,0.01)
+    );
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    backdrop-filter:blur(6px);
+
+}
+
+.tech-badge{
+    position:absolute;
+    top:10px;
+    right:10px;
+    font-size:10px;
+    padding:3px 7px;
+    border-radius:6px;
+    background:rgba(0,255,170,0.12);
+    border:1px solid rgba(0,255,170,0.4);
+    color:var(--accent);
+    font-weight:500;
+    letter-spacing:.5px;
+}
+
+.tech-card img { width: 50px; margin-bottom: 10px; }
+/* Indicador level de tecnologia */
+.skill-bar{
+    width:100%;
+    height:6px;
+    background:rgba(255,255,255,0.12);
+    border-radius:4px;
+    margin-top:10px;
+    overflow:hidden;
+}
+
+.skill-level{
+    height:100%;
+    width:0;
+    border-radius:4px;
+
+    background:linear-gradient(
+        90deg,
+        #00ffc8,
+        #00ffa2,
+        #00ffc8
+    );
+
+    background-size:200% 100%;
+    animation:skillFlow 2s linear infinite;
+
+    transition:width 1.2s ease;
+}
+
+@keyframes skillFlow{
+    0%{
+        background-position:0% 0;
+    }
+    100%{
+        background-position:200% 0;
+    }
+}
+
+
+.skill-level{
+    box-shadow:0 0 6px rgba(0,255,200,0.6);
+}
+
+.skill-percent{
+    font-size:12px;
+    margin-top:6px;
+    color:var(--accent);
+    opacity:0.9;
+    letter-spacing:0.5px;
+}
+
+
+/* SECCION  PIENSA COMO INGENIERO */
+
+/* ===========================================
+   ARQUITECTURA MAINFRAME
+=========================================== */
+#arquitectura { padding: 80px 20px; background-color: #020617; }
+#arquitectura h2 { text-align: center; margin-bottom: 50px; }
+.architecture-container { max-width: 500px; margin: auto; text-align: center; }
+.architecture-layer { background-color: #1e293b; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+.architecture-layer h3 { color: #38bdf8; margin-bottom: 10px; }
+.arrow { font-size: 30px; margin: 10px 0; }
+.timeline-tech { margin-top: 15px; display: flex; flex-wrap: wrap; gap: 12px; }
+.timeline-tech span { display: flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 20px; background: #f4f4f4; font-size: 0.85rem; }
+.timeline-tech i { font-size: 1rem; }
+
+/* ===========================================
+   FOOTER
+=========================================== */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: #94a3b8;
+    border-top: 1px solid #1f2937;
+    margin-top: 60px;
+}
+
+/* ===========================================
+   SCROLL PROGRESS BAR
+=========================================== */
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: #38bdf8;
+    z-index: 2000;
+    transition: width 0.1s linear;
+}
+
+/* ===========================================
+   ACTIVE NAV LINK
+=========================================== */
+
+.nav-links a.active {
+    color: #38bdf8;
+    font-weight: 600;
+}
+
+/* ===========================================
+   TIMELINE HOVER EFFECT
+=========================================== */
+
+.timeline-content {
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+.timeline-content:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
+}
+
+/* ===========================================
+   ENGINEERING MINDSET
+=========================================== */
+.mindset-layout{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (max-width: 900px){
+
+    .mindset-layout{
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .mindset-illustration img{
+        max-width: 280px;
+        margin: 0 auto;
+        display: block;
+    }
+
+}
+
+
+
+.mindset-card{
+
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.01)
+    );
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:12px;
+
+    padding:25px;
+
+    transition:all .3s ease;
+
+}
+
+.mindset-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:var(--accent);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.4),
+        0 0 10px rgba(0,255,170,0.15);
+
+}
+
+
+#engineering-mindset {
+
+    padding: 80px 20px;
+    background-color: #0f172a;
+
+}
+
+#engineering-mindset h2 {
+
+    text-align: center;
+    margin-bottom: 50px;
+
+}
+
+.mindset-illustration{
+
+    text-align:center;
+
+}
+
+.mindset-illustration img{
+
+    max-width:260px;
+
+    border-radius:14px;
+
+    padding:12px;
+
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,0.04),
+        rgba(255,255,255,0.01)
+    );
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    transition:transform .4s ease, box-shadow .4s ease;
+
+}
+
+.mindset-illustration img:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.4),
+        0 0 15px rgba(0,255,170,0.2);
+
+}
+
+.mindset-caption{
+
+    margin-top:10px;
+
+    font-size:12px;
+
+    color:var(--text-secondary);
+
+}
+
+@media(max-width:900px){
+
+    .mindset-layout{
+
+        grid-template-columns:1fr;
+        text-align:center;
+
+    }
+
+}
+
+.mindset-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    max-width: 550px;
+    margin-left: auto;
+}
+
+@media (min-width: 900px){
+
+    .mindset-container{
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+.mindset-card {
+
+    background: #1e293b;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    border: 1px solid #1f2937;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.mindset-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+
+}
+
+.mindset-card h3 {
+
+    color: #38bdf8;
+
+    margin-bottom: 12px;
+
+}
+
+.mindset-card p {
+
+    color: #94a3b8;
+
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+
+}
+
+.mindset-footer{
+
+    margin-top:60px;
+    text-align:center;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+.mindset-footer p{
+
+    font-size:14px;
+    line-height:1.6;
+    color:var(--text-secondary);
+    font-style:italic;
+
+}
+
+/* I,agen final cobol */
+/* =====================================================
+   ENGINEERING FUTURE LAYOUT (centrado real)
+===================================================== */
+
+.engineering-future{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+@media (max-width: 900px){
+
+    .engineering-future{
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+
+.future-terminal{
+
+    margin-bottom:40px;
+
+    font-family:monospace;
+
+    background:rgba(0,0,0,0.4);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:10px;
+
+    padding:25px;
+
+    max-width:600px;
+
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+.terminal-line{
+
+    color:var(--accent);
+    font-size:14px;
+    margin:5px 0;
+
+}
+
+.future-image img{
+
+    max-width:60%;
+    width:20%;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    transition:transform .4s ease, box-shadow .4s ease;
+
+}
+
+.future-image img:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.4),
+        0 0 20px rgba(0,255,170,0.2);
+
+}
+
+
+/* =====================================================
+   HERO IMAGE FLIP EFFECT
+   Nuevo código - no reemplaza reglas existentes
+===================================================== */
+
+/* Perspectiva para efecto 3D */
+.hero-image-flip {
+    perspective: 1000px;
+    width: 260px; /* respeta tamaño aproximado actual */
+}
+
+/* Contenedor que rota */
+.hero-image-inner {
+    position: relative;
+    width: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Rotación al pasar el mouse */
+.hero-image-flip:hover .hero-image-inner {
+    transform: rotateY(180deg);
+}
+
+/* Caras de la imagen */
+.hero-image-front,
+.hero-image-back {
+    position: absolute;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+/* Imagen frontal */
+.hero-image-front img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+/* Imagen trasera */
+.hero-image-back {
+    transform: rotateY(180deg);
+}
+
+.hero-image-back img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+/* ======================================================
+   PROJECT ICONS
+   Nuevo código - no reemplaza reglas existentes
+====================================================== */
+
+/* Contenedor del icono */
+
+.project-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+
+/* ======================================================
+   ANIMACION COBOL (procesamiento batch)
+====================================================== */
+
+.cobol-icon {
+    animation: cobolSpin 3s linear infinite;
+}
+
+@keyframes cobolSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* ======================================================
+   ANIMACION ANALYSIS (flujo)
+====================================================== */
+
+.analysis-icon {
+    animation: analysisPulse 2s ease-in-out infinite;
+}
+
+@keyframes analysisPulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+
+/* ======================================================
+   ANIMACION PORTFOLIO (coding)
+====================================================== */
+
+.portfolio-icon {
+    font-weight: bold;
+    animation: typingBlink 1.5s infinite;
+}
+
+@keyframes typingBlink {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* =====================================================
+   ENGINEERING FUTURE (solo terminal + flow)
+===================================================== */
+
+.engineering-future {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
+
+    margin-top: 40px;
+
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =====================================================
+   TERMINAL LEGACY (más pequeño)
+===================================================== */
+
+.future-terminal {
+    font-family: monospace;
+    background: #0d0d0d;
+    color: #00ff9c;
+    padding: 12px 16px; /* antes 20px */
+    border-radius: 6px;
+    min-width: 180px; /* antes 240px */
+    box-shadow: 0 0 10px rgba(0,255,150,0.2);
+}
+
+.terminal-line {
+    font-size: 12px; /* antes 14px */
+    margin: 4px 0;
+}
+
+.terminal-line:nth-child(1) { animation-delay: 0s; }
+.terminal-line:nth-child(2) { animation-delay: 2s; }
+.terminal-line:nth-child(3) { animation-delay: 4s; }
+
+
+@keyframes terminalTyping {
+
+    0% { opacity: 0; transform: translateX(-10px); }
+
+    20% { opacity: 1; transform: translateX(0); }
+
+    80% { opacity: 1; }
+
+    100% { opacity: 0; }
+
+}
+
+
+/* =====================================================
+   COBOL AI IMAGE
+===================================================== */
+
+.future-image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.future-image img {
+    width: 220px;
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   AI SIGNAL (ajustado al nuevo tamaño)
+===================================================== */
+
+.ai-signal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 140px; /* antes 180px */
+    height: 140px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(80,120,255,0.4);
+    animation: aiPulse 3s infinite;
+}
+
+@keyframes aiPulse {
+
+    0% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.6;
+    }
+
+    70% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+/* =====================================================
+   COBOL FLOW (más compacto y centrado)
+===================================================== */
+
+.cobol-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    font-family: monospace;
+    font-size: 11px;
+    color: #00ff9c;
+
+    min-width: 120px; /* más pequeño */
+    text-align: center;
+}
+
+.cobol-flow{
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px){
+
+    .cobol-flow{
+        font-size: 0.8rem;
+    }
+
+}
+
+
+/* =====================================================
+   COBOL AI IMAGE (más pequeña)
+===================================================== */
+
+.future-image img {
+    width: 170px; /* antes 220px */
+    border-radius: 10px;
+}
+/* líneas de código */
+
+.cobol-flow span {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: cobolFlow 6s infinite;
+}
+
+/* delays para efecto secuencial */
+
+.cobol-flow span:nth-child(1) { animation-delay: 0s; }
+.cobol-flow span:nth-child(2) { animation-delay: 2s; }
+.cobol-flow span:nth-child(3) { animation-delay: 4s; }
+
+
+@keyframes cobolFlow {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+}
+
+/* =====================================================
+   CONTACT SECTION
+   Nuevo código
+===================================================== */
+
+#contact {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+
+/* texto introductorio */
+
+.contact-intro {
+    max-width: 600px;
+    margin: 20px auto 40px auto;
+    line-height: 1.6;
+}
+
+
+/* contenedor principal */
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+
+/* item de contacto */
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+}
+
+
+/* iconos */
+
+.contact-icon {
+    font-size: 18px;
+}
+
+
+/* redes sociales */
+
+.social-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+
+/* links sociales */
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    text-decoration: none;
+    font-weight: 500;
+
+    padding: 8px 14px;
+    border-radius: 6px;
+
+    transition: 0.3s;
+}
+
+
+/* hover profesional */
+
+.social-link:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+}
+
+
+/* iconos sociales */
+
+.social-icon {
+    font-size: 16px;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.site-footer {
+
+    margin-top: 80px;
+    padding: 30px 20px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+
+    text-align: center;
+}
+
+
+/* contenedor */
+
+.footer-container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* nombre */
+
+.footer-name {
+
+    font-weight: 500;
+    font-size: 14px;
+}
+
+
+/* rol */
+
+.footer-role {
+
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+
+/* terminal */
+
+.footer-terminal {
+
+    font-family: monospace;
+    font-size: 12px;
+
+    margin-top: 6px;
+
+    color: #00ff9c;
+}
+
+
+/* cursor parpadeando */
+
+.terminal-cursor {
+
+    margin-left: 4px;
+
+    animation: cursorBlink 1.2s infinite;
+}
+
+
+@keyframes cursorBlink {
+
+    0% { opacity: 1; }
+
+    50% { opacity: 0; }
+
+    100% { opacity: 1; }
+
+}
+
+/* =====================================================
+   HERO CV BUTTON
+===================================================== */
+
+.btn-cv {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 10px 16px;
+
+    font-size: 14px;
+
+    border-radius: 6px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+
+/* icono */
+
+.cv-icon {
+    font-size: 14px;
+}
+
+
+/* hover */
+
+.btn-cv:hover {
+
+    transform: translateY(-2px);
+
+    border-color: rgba(120,120,255,0.6);
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* =====================================================
+   CV DOWNLOAD BUTTON
+===================================================== */
+
+.btn-cv {
+
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 10px 18px;
+
+    font-size: 14px;
+
+    border-radius: 6px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    text-decoration: none;
+
+    overflow: hidden;
+
+    transition: all 0.3s ease;
+}
+
+
+/* hover */
+
+.btn-cv:hover {
+
+    transform: translateY(-2px);
+
+    border-color: rgba(120,120,255,0.6);
+
+}
+
+
+/* =====================================================
+   PROGRESS BAR
+===================================================== */
+
+.cv-progress {
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    height: 2px;
+
+    width: 0%;
+
+    background: #6c7cff;
+
+}
+
+
+/* animación progreso */
+
+.cv-progress.active {
+
+    animation: cvDownload 1.6s forwards;
+}
+
+
+@keyframes cvDownload {
+
+    0% { width: 0%; }
+
+    100% { width: 100%; }
+
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+/* Scrollbar completa */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Fondo de la barra */
+::-webkit-scrollbar-track {
+    background: #0f172a; /* mismo tono oscuro del sitio */
+}
+
+/* Barra que se mueve */
+::-webkit-scrollbar-thumb {
+    background: #38bdf8;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+/* Hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #0ea5e9;
+}
+
+h2{
+    text-shadow: 0 0 10px rgba(56,189,248,0.25);
+}
+

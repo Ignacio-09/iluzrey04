@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ========================================
+         LIBRERÍA DE ICONOS DEVICON
+    ======================================== -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JS externo -->
+    <script defer src="js/script.js"></script>
+    <title>Ignacio Luz Reyes | Software Developer</title>
+</head>
+
+<body>
+    <!-- ========================================
+         Scroll Progress Bar
+    ======================================== -->
+    <div id="scroll-progress"></div>
+    <!-- ========================================
+         Canvas de partículas
+    ======================================== -->
+    <canvas id="particles"></canvas>
+
+    <header class="navbar">
+        <div class="container">
+
+            <h1 class="logo">&lt;ILR/&gt;</h1>
+
+            <!-- Botón hamburguesa -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#sobre-mi">Sobre mí</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#experiencia">Experiencia</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#tecnologias">Tecnologías</a></li>
+                    <li><a href="#engineering-mindset">Engineer</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- ========================================
+     Hero Section
+======================================== -->
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-content">
+
+                <div class="hero-text">
+                    <h2>Ignacio Luz Reyes</h2>
+                    <p class="subtitle">
+                        Software Developer — Mainframe & Legacy Financial Systems
+                    </p>
+
+                    <p class="hero-description">
+
+                        Software developer working with COBOL-based mainframe systems
+                        on the Unisys MCP platform within financial environments.
+
+                        Experienced in batch processing, client data cleaning and
+                        analysis of legacy programs to understand processing flows,
+                        identify issues and support reliable system execution.
+
+                        Focused on maintaining stability, data integrity and
+                        operational reliability in critical enterprise systems.
+
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#experiencia" class="btn-primary">
+                            Ver experiencia
+                        </a>
+
+                        <a href="#contact" class="btn-secondary">
+                            Contacto
+                        </a>
+
+                        <!-- ========================================
+                         NUEVO: Botón descargar CV
+                    ======================================== -->
+
+                        <!-- ========================================
+                         Botón descargar CV con animación
+                    ======================================== -->
+
+                        <a href="docs/Ignacio_Luz_Reyes_CV.pdf" class="btn-cv" id="download-cv" download>
+
+                            <span class="cv-icon">⬇</span>
+
+                            <span class="cv-text">
+                                Descargar CV
+                            </span>
+
+                            <!-- Barra de progreso -->
+                            <span class="cv-progress"></span>
+
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- ========================================
+                 Imagen Hero con efecto flip
+                 - No se cambia la clase hero-image existente
+                 - Se agregan contenedores internos para animación
+            ======================================== -->
+
+                <div class="hero-image">
+
+                    <!-- Contenedor para perspectiva 3D -->
+                    <div class="hero-image-flip">
+
+                        <!-- Contenedor que rota -->
+                        <div class="hero-image-inner">
+
+                            <!-- Imagen frontal (foto profesional) -->
+                            <div class="hero-image-front">
+                                <img src="img/MiFoto.png" alt="Foto profesional de Ignacio Luz Reyes">
+                            </div>
+
+                            <!-- Imagen trasera (imagen alternativa) -->
+                            <div class="hero-image-back">
+                                <img src="img/illustrations/iluzrey.jpeg" alt="Imagen alternativa de Ignacio Luz Reyes">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- ========================================
+             Sobre mí
+        ======================================== -->
+        <section id="sobre-mi">
+            <h2 class="reveal">Sobre mí</h2>
+
+            <div class="about-container">
+                <!-- Imagen -->
+                <div class="about-image reveal">
+                    <img src="img/illustrations/profesionalCobol.jpeg" alt="Foto de perfil">
+                </div>
+                <!-- Texto -->
+                <div class="about-text reveal">
+                    <h3 class="about-intro">
+                        Developer focused on reliability in legacy financial systems
+                    </h3>
+                    <p>
+                        Desarrollador de software en entornos mainframe con sólida experiencia en COBOL sobre la
+                        plataforma Unisys,
+                        recientemente en procesos batch, depuración de datos y sistemas críticos de negocio.
+                    </p>
+                    <p>
+                        Experiencia en ambientes de desarrollo y soporte UAT, ejecuciones nocturnas y coordinación con
+                        equipos
+                        multidisciplinarios para el análisis de requerimientos.
+                    </p>
+                    <p>
+                        Participación en análisis y refactorización de programas financieros, con un perfil
+                        colaborativo,
+                        disposición al apoyo y enfoque en el aprendizaje continuo, garantizando estabilidad, calidad e
+                        integridad
+                        de la información.
+                    </p>
+                    <!-- estadísticas -->
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>2+</h3>
+                            <span>Años experiencia</span>
+                        </div>
+                        <div class="stat">
+                            <h3>5+</h3>
+                            <span>Tecnologías</span>
+                        </div>
+                        <div class="stat">
+                            <h3>10+</h3>
+                            <span>Proyectos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             Habilidades
+        ======================================== -->
+        <section id="habilidades">
+            <h2 class="reveal">Habilidades</h2>
+            <div class="skills-container">
+                <!-- Backend -->
+                <div class="skill-category reveal">
+                    <h3>Backend Development</h3>
+                    <div class="skills-grid">
+                        <div class="skill"><i class="devicon-java-plain"></i><span>Java</span></div>
+                        <div class="skill"><i class="devicon-spring-plain"></i><span>Spring Boot</span></div>
+                        <div class="skill"><i class="devicon-rest-plain"></i><span>REST APIs</span></div>
+                    </div>
+                </div>
+                <!-- Mainframe -->
+                <div class="skill-category reveal">
+                    <h3>Mainframe Technologies</h3>
+                    <div class="skills-grid">
+                        <div class="skill"><i class="devicon-cobol-plain"></i><span>COBOL</span></div>
+                        <div class="skill"><span>DMSII</span></div>
+                        <div class="skill"><span>Unisys MCP</span></div>
+                        <div class="skill"><span>JCL / Batch</span></div>
+                    </div>
+                </div>
+                <!-- Databases -->
+                <div class="skill-category reveal">
+                    <h3>Databases</h3>
+                    <div class="skills-grid">
+                        <div class="skill"><span>SQL</span></div>
+                        <div class="skill"><span>PL/SQL</span></div>
+                        <div class="skill"><span>DB2</span></div>
+                    </div>
+                </div>
+                <!-- Herramientas -->
+                <div class="skill-category reveal">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skills-grid">
+                        <div class="skill"><i class="devicon-git-plain"></i><span>Git</span></div>
+                        <div class="skill"><i class="devicon-postman-plain"></i><span>Postman</span></div>
+                        <div class="skill"><i class="devicon-eclipse-plain"></i><span>Eclipse</span></div>
+                        <div class="skill"><span>Jira</span></div>
+                    </div>
+                </div>
+                <!-- Habilidades blandas -->
+                <div class="skill-category reveal soft-skills">
+                    <h3>Habilidades Blandas</h3>
+                    <div class="skills-grid">
+                        <div class="skill"><span>💬 Comunicación</span></div>
+                        <div class="skill"><span>🤝 Trabajo en equipo</span></div>
+                        <div class="skill"><span>🧠 Pensamiento analítico</span></div>
+                        <div class="skill"><span>🔎 Resolución de problemas</span></div>
+                        <div class="skill"><span>⚡ Adaptabilidad</span></div>
+                        <div class="skill"><span>📚 Aprendizaje continuo</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ===========================
+             Legacy / Mainframe Section
+        =========================== -->
+        <section id="legacy" class="legacy">
+
+            <div class="container legacy-content">
+
+                <!-- Imagen del dinosaurio -->
+                <div class="legacy-image reveal">
+                    <img src="img/illustrations/cobol-dinosaur.png" alt="COBOL dinosaur">
+                </div>
+
+                <!-- Texto de la sección -->
+                <div class="legacy-text reveal">
+
+                    <h2>Working With Legacy Systems</h2>
+
+                    <p>
+                        Many critical financial and enterprise systems still run
+                        on COBOL and mainframe platforms.
+                    </p>
+
+                    <p>
+                        My work focuses on understanding these systems,
+                        analyzing their behavior and improving reliability
+                        while maintaining their stability.
+                    </p>
+
+                    <!-- Terminal style block -->
+                    <div class="legacy-terminal">
+                        <span>> INITIALIZING LEGACY ENVIRONMENT...</span>
+                        <span>> COBOL PROGRAM ANALYSIS</span>
+                        <span>> BATCH PROCESS MONITORING</span>
+                        <span>> SYSTEM STABILITY: OK</span>
+                    </div>
+
+                    <!-- Mini timeline -->
+                    <div class="legacy-tech">
+                        <span>COBOL</span>
+                        <span>Unisys MCP</span>
+                        <span>DMSII</span>
+                        <span>Batch Processing</span>
+                    </div>
+
+                    <p class="legacy-highlight">
+                        Yes… COBOL is old — but dinosaurs ruled the Earth too.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- ========================================
+     Experiencia Profesional
+       ======================================== -->
+        <section id="experiencia">
+            <h2 class="reveal">Experiencia Profesional</h2>
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jul 2025 – Actual</span>
+                        <h3>COBOL Developer — Softtek</h3>
+                        <p>
+                            Desarrollo de procesos críticos para sistemas core en entorno Mainframe Unisys,
+                            proyecto S016 Data Cleaning de la base de datos de clientes.
+                        </p>
+                        <ul>
+                            <li>Desarrollo de procesos COBOL74 y batch para depuración y sincronización de datos.</li>
+                            <li>Operaciones sobre base de datos DMSII (consultas, actualizaciones y eliminación).</li>
+                            <li>Compilación y ejecución de programas mediante WFL.</li>
+                            <li>Análisis de historias de usuario y seguimiento de requerimientos en Jira.</li>
+                        </ul>
+                        <div class="timeline-tech">
+                            <span><i class="devicon-cobol-plain"></i> COBOL</span>
+                            <span><i class="devicon-database-plain"></i> DMSII</span>
+                            <span><i class="devicon-linux-plain"></i> WFL</span>
+                            <span><i class="devicon-jira-plain"></i> Jira</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Timeline Item COBOL Moment -->
+                <div class="timeline-item timeline-cobol reveal">
+                    <div class="timeline-content cobol-moment">
+
+                        <img src="img/illustrations/holaCobol.png" alt="Welcome COBOL">
+
+                        <p class="cobol-caption">
+                            First steps writing COBOL programs
+                        </p>
+
+                    </div>
+                </div>
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Mar 2024 – Jun 2025</span>
+                        <h3>Analista de Sistemas — Softtek</h3>
+                        <p>
+                            Soporte y análisis de sistemas críticos financieros en Mainframe Unisys,
+                            revisión de procesos batch y coordinación con equipos UAT.
+                        </p>
+                        <ul>
+                            <li>Monitoreo de ejecuciones nocturnas y reportes de incidencias.</li>
+                            <li>Validación de datos y pruebas unitarias de programas refactorizados.</li>
+                            <li>Documentación de procesos y procedimientos en Confluence.</li>
+                        </ul>
+                        <div class="timeline-tech">
+                            <span><i class="devicon-cobol-plain"></i> COBOL</span>
+                            <span><i class="devicon-database-plain"></i> DMSII</span>
+                            <span><i class="devicon-confluence-plain"></i> Confluence</span>
+                            <span><i class="devicon-jira-plain"></i> Jira</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Ene 2023 – Feb 2024</span>
+                        <h3>Junior Developer — Softtek</h3>
+                        <p>
+                            Apoyo en refactorización de programas financieros y corrección de errores en batch.
+                        </p>
+                        <ul>
+                            <li>Pruebas unitarias y UAT de aplicaciones core.</li>
+                            <li>Colaboración con el equipo para análisis de requerimientos.</li>
+                            <li>Aprendizaje y documentación de buenas prácticas en COBOL y DMSII.</li>
+                        </ul>
+                        <div class="timeline-tech">
+                            <span><i class="devicon-cobol-plain"></i> COBOL</span>
+                            <span><i class="devicon-database-plain"></i> DMSII</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Ago 2022 – Dic 2022</span>
+                        <h3>Pasantía en Desarrollo — Softtek</h3>
+                        <p>
+                            Introducción a sistemas mainframe y soporte en procesos batch.
+                        </p>
+                        <ul>
+                            <li>Participación en ejecución de procesos nocturnos.</li>
+                            <li>Aprendizaje de estándares de desarrollo en entornos legacy.</li>
+                            <li>Documentación de procedimientos y colaboración con analistas senior.</li>
+                        </ul>
+                        <div class="timeline-tech">
+                            <span><i class="devicon-cobol-plain"></i> COBOL</span>
+                            <span><i class="devicon-database-plain"></i> DMSII</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="experience-counter reveal">
+
+            <span id="exp-years">0</span>+
+            <p>Years working with enterprise systems</p>
+
+        </div>
+        <!-- ========================================
+     Proyectos
+======================================== -->
+        <section id="proyectos">
+            <div class="cobol-background"></div>
+
+            <h2 class="reveal">Proyectos</h2>
+
+            <div class="projects-container">
+
+                <!-- ========================================
+             Proyecto 1
+             Icono representa procesamiento batch
+        ======================================== -->
+
+                <div class="project-card reveal project-cobol">
+                    <h3>Data Cleaning de Cuentas en Sistema Core</h3>
+
+                    <p>
+                        Desarrollo de procesos en COBOL para depuración masiva de cuentas
+                        dentro de un sistema core financiero en entorno Mainframe Unisys.
+                        Procesamiento de millones de registros aplicando reglas de negocio
+                        para validar, limpiar y sincronizar información de clientes.
+                    </p>
+
+                    <div class="project-visual cobol-visual">
+
+                        <!-- NUEVO: icono representando procesamiento -->
+                        <div class="project-icon cobol-icon">
+                            ⚙
+                        </div>
+
+                        <span>PROCESSING ACCOUNTS...</span>
+
+                    </div>
+
+                    <div class="project-tech">
+                        <span>COBOL</span>
+                        <span>Unisys MCP</span>
+                        <span>DMSII</span>
+                        <span>Batch Processing</span>
+                    </div>
+                </div>
+
+
+                <!-- ========================================
+             Proyecto 2
+             Icono representa análisis de flujo
+        ======================================== -->
+
+                <div class="project-card reveal project-analysis">
+                    <h3>Separación de Movimientos de Crédito y Débito</h3>
+
+                    <p>
+                        Análisis y refactorización de programas legacy para separar el
+                        procesamiento de movimientos financieros originalmente
+                        ejecutados en un mismo flujo. Incluye análisis del negocio,
+                        validación de reglas existentes, pruebas y comunicación de
+                        hallazgos al cliente.
+                    </p>
+
+                    <div class="project-visual analysis-visual">
+
+                        <!-- NUEVO: icono de análisis -->
+                        <div class="project-icon analysis-icon">
+                            ⎇
+                        </div>
+
+                        <span>FLOW ANALYSIS</span>
+
+                    </div>
+
+                    <div class="project-tech">
+                        <span>COBOL</span>
+                        <span>Mainframe</span>
+                        <span>DMSII</span>
+                        <span>System Analysis</span>
+                    </div>
+                </div>
+
+
+                <!-- ========================================
+             Proyecto 3
+             Icono representa desarrollo web
+        ======================================== -->
+
+                <div class="project-card reveal project-portfolio">
+                    <h3>Portafolio Web Profesional</h3>
+
+                    <p>
+                        Desarrollo de este portafolio personal utilizando HTML, CSS y
+                        JavaScript. Aunque no soy desarrollador web, aplico buenas
+                        prácticas de ingeniería de software y utilizo herramientas
+                        de inteligencia artificial para mejorar productividad,
+                        calidad de código y diseño.
+                    </p>
+
+                    <div class="project-visual portfolio-visual">
+
+                        <!-- NUEVO: icono desarrollo -->
+                        <div class="project-icon portfolio-icon">
+                            &lt;/&gt;
+                        </div>
+
+                        <span> BUILDING</span>
+
+                    </div>
+
+                    <div class="project-tech">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>AI Assisted Development</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- ========================================
+     Tecnologías
+========================================= -->
+        <section id="tecnologias">
+            <h2 class="reveal">Technology Ecosystem</h2>
+            <p class="tech-subtitle reveal">
+                Technologies I use to build, maintain and modernize systems.
+            </p>
+            <div class="tech-wrapper">
+                <!-- Lenguajes -->
+                <div class="tech-group reveal">
+                    <h3>Lenguajes</h3>
+                    <div class="tech-container">
+                        <div class="tech-card"><i class="devicon-java-plain colored"></i>
+                            <p>Java</p>
+                        </div>
+                        <div class="tech-card"><i class="devicon-javascript-plain colored"></i>
+                            <p>JavaScript</p>
+                        </div>
+                        <div class="tech-card"><i class="devicon-php-plain colored"></i>
+                            <p>PHP</p>
+                        </div>
+                        <div class="tech-card primary-tech">
+                            <span class="tech-badge">Expert</span>
+                            <i class="devicon-cobol-plain colored"></i>
+                            <p>COBOL</p>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-level="80"></div>
+                            </div>
+                            <span class="skill-percent">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bases de datos -->
+                <div class="tech-group reveal">
+                    <h3>Bases de Datos</h3>
+                    <div class="tech-container">
+                        <div class="tech-card"><i class="devicon-mysql-plain colored"></i>
+                            <p>SQL</p>
+                        </div>
+                        <div class="tech-card"><i class="devicon-oracle-original colored"></i>
+                            <p>PL/SQL</p>
+                        </div>
+                        <div class="tech-card"><i class="devicon-db2-plain colored"></i>
+                            <p>DB2</p>
+                        </div>
+                        <div class="tech-card primary-tec">
+                            <span class="tech-badge">Expert</span>
+                            <i class="devicon-database-plain colored"></i>
+                            <p>DMSII</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mainframe -->
+                <div class="tech-group reveal">
+                    <h3>Mainframe</h3>
+                    <div class="tech-container">
+                        <div class="tech-card primary-tech">
+                            <span class="tech-badge">Expert</span>
+                            <i class="devicon-ubuntu-plain colored"></i>
+                            <p>Unisys MCP</p>
+                        </div>
+                        <div class="tech-card"><i class="devicon-linux-plain colored"></i>
+                            <p>WFL</p>
+                        </div>
+                        <div class="tech-card"><i class="devicon-linux-plain colored"></i>
+                            <p>JCL</p>
+                        </div>
+                        <div class="tech-card primary-tech">
+                            <span class="tech-badge">Expert</span>
+                            <i class="devicon-html5-plain colored">
+                            </i>
+                            <p>WebEnabler</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Herramientas -->
+                <div class="tech-group reveal">
+                    <h3>Herramientas</h3>
+                    <div class="tech-container">
+                        <div class="tech-card"><i class="devicon-git-plain colored"></i>
+                            <p>Git</p>
+                        </div>
+                        <div class="tech-card primary-tech">
+                            <span class="tech-badge">Expert</span>
+                            <i class="devicon-vscode-plain colored"></i>
+                            <p>VS Code</p>
+                        </div>
+                        <div class="tech-card"><i class="devicon-eclipse-plain colored"></i>
+                            <p>Eclipse</p>
+                        </div>
+                        <div class="tech-card"><i class="devicon-jira-plain colored"></i>
+                            <p>Jira</p>
+                        </div>
+                        <div class="tech-card"><i class="devicon-confluence-plain colored"></i>
+                            <p>Confluence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========================================
+             Engineering Mindset
+        ========================================= -->
+        <section id="engineering-mindset">
+
+            <h2 class="reveal">How I Think as an Engineer</h2>
+
+            <div class="mindset-layout">
+
+                <div class="mindset-container">
+
+                    <div class="mindset-card reveal">
+                        <h3>System Understanding</h3>
+                        <p>
+                            Before modifying any system, I focus on understanding its behavior,
+                            data flows and dependencies. This approach is essential when working
+                            with large legacy systems where stability is critical.
+                        </p>
+                    </div>
+
+                    <div class="mindset-card reveal">
+                        <h3>Problem Analysis</h3>
+                        <p>
+                            I approach problems by analyzing root causes rather than symptoms.
+                            This allows me to debug complex batch processes and ensure reliable
+                            data processing.
+                        </p>
+                    </div>
+
+                    <div class="mindset-card reveal">
+                        <h3>Reliability First</h3>
+                        <p>
+                            In financial systems, reliability is more important than novelty.
+                            My focus is always on maintaining data integrity and system stability.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="mindset-illustration reveal">
+                    <img src="img/illustrations/cobol.jpeg" alt="Ancient programmers coding in COBOL">
+                    <p class="mindset-caption">Legacy engineers at work</p>
+                </div>
+
+            </div>
+            <!-- ========================================
+     Legacy Engineering Future
+======================================== -->
+
+            <div class="engineering-future reveal">
+
+                <!-- Terminal simulando ejecución legacy -->
+                <div class="future-terminal">
+
+                    <p class="terminal-line">RUN BATCH PROCESS...</p>
+                    <p class="terminal-line">VALIDATING CLIENT DATA...</p>
+                    <p class="terminal-line">SYNC COMPLETE</p>
+
+                </div>
+
+
+                <!-- ========================================
+         NUEVO: Flujo COBOL hacia AI
+    ========================================= -->
+
+                <div class="cobol-flow">
+
+                    <span>MOVE CLIENT-DATA TO AI-ENGINE</span>
+                    <span>PERFORM DATA-ANALYSIS</span>
+                    <span>END-PERFORM</span>
+
+                </div>
+
+
+            </div>
+        </section>
+        <!-- ========================================
+     Contacto
+======================================== -->
+        <section id="contact">
+
+            <h2 class="reveal">Contacto</h2>
+
+            <!-- Texto introductorio -->
+            <p class="contact-intro reveal">
+                Si deseas hablar sobre ingeniería de software, sistemas legacy
+                o posibles oportunidades profesionales, puedes contactarme
+                a través de correo, WhatsApp o mis redes.
+            </p>
+
+
+            <!-- ========================================
+         Información de contacto
+    ========================================= -->
+
+            <div class="contact-container reveal">
+
+                <!-- Email -->
+                <div class="contact-item">
+
+                    <!-- Icono correo -->
+                    <div class="contact-icon">
+                        ✉
+                    </div>
+
+                    <a href="mailto:tuemail@example.com">
+                        tuemail@example.com
+                    </a>
+
+                </div>
+
+
+                <!-- WhatsApp -->
+                <div class="contact-item">
+
+                    <!-- Icono whatsapp -->
+                    <div class="contact-icon">
+                        💬
+                    </div>
+
+                    <a href="https://wa.me/5210000000000" target="_blank">
+                        WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ========================================
+         Redes sociales
+    ========================================= -->
+
+            <div class="social-container reveal">
+
+                <a href="#" class="social-link">
+
+                    <span class="social-icon">📘</span>
+                    Facebook
+
+                </a>
+
+                <a href="#" class="social-link">
+
+                    <span class="social-icon">📷</span>
+                    Instagram
+
+                </a>
+
+                <a href="#" class="social-link">
+
+                    <span class="social-icon">💼</span>
+                    LinkedIn
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ========================================
+         Footer
+    ======================================== -->
+    <!-- ========================================
+     Footer
+======================================== -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <!-- Información profesional -->
+            <div class="footer-info">
+                <p class="footer-name">
+                    © <span id="year"></span> Ignacio Luz Reyes
+                </p>
+
+                <p class="footer-role">
+                    Software Engineer — Legacy Systems & Financial Platforms
+                </p>
+            </div>
+
+
+            <!-- Visual estilo terminal -->
+            <div class="footer-terminal">
+
+                <span class="terminal-text">
+                    system.status = stable
+                </span>
+
+                <span class="terminal-cursor">█</span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
