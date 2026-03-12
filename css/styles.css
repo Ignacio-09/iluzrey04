@@ -348,7 +348,7 @@ body {
 }
 
 /* ===========================
-   TERMINAL EFFECT
+   TERMINAL EFFECT LEGACY SECTION
 =========================== */
 
 .legacy-terminal{
@@ -435,14 +435,10 @@ body {
     color:#ffffff;
 }
 /* ===========================================
-   EXPERIENCIA TIMELINE
+   EXPERIENCIA TIMELINE - SECTION
 =========================================== */
 #experiencia { padding: 80px 20px; background-color: #0f172a; }
 #experiencia h2 { text-align: center; margin-bottom: 60px; }
-/* =========================
-   TIMELINE BASE
-========================= */
-
 /* =========================
    TIMELINE BASE
 ========================= */
@@ -1283,15 +1279,7 @@ left:13px;
 
 /* SECCION  PIENSA COMO INGENIERO */
 
-/* ===========================================
-   ARQUITECTURA MAINFRAME
-=========================================== */
-#arquitectura { padding: 80px 20px; background-color: #020617; }
-#arquitectura h2 { text-align: center; margin-bottom: 50px; }
-.architecture-container { max-width: 500px; margin: auto; text-align: center; }
-.architecture-layer { background-color: #1e293b; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
-.architecture-layer h3 { color: #38bdf8; margin-bottom: 10px; }
-.arrow { font-size: 30px; margin: 10px 0; }
+
 .timeline-tech { margin-top: 15px; display: flex; flex-wrap: wrap; gap: 12px; }
 .timeline-tech span { display: flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 20px; background: #f4f4f4; font-size: 0.85rem; }
 .timeline-tech i { font-size: 1rem; }
@@ -1795,55 +1783,6 @@ footer {
 
 
 /* =====================================================
-   COBOL AI IMAGE
-===================================================== */
-
-.future-image-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.future-image img {
-    width: 220px;
-    border-radius: 10px;
-}
-
-
-/* =====================================================
-   AI SIGNAL (ajustado al nuevo tamaño)
-===================================================== */
-
-.ai-signal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 140px; /* antes 180px */
-    height: 140px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    border: 2px solid rgba(80,120,255,0.4);
-    animation: aiPulse 3s infinite;
-}
-
-@keyframes aiPulse {
-
-    0% {
-        transform: translate(-50%, -50%) scale(0.9);
-        opacity: 0.6;
-    }
-
-    70% {
-        transform: translate(-50%, -50%) scale(1.2);
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0;
-    }
-
-}
-
-/* =====================================================
    COBOL FLOW (más compacto y centrado)
 ===================================================== */
 
@@ -1881,10 +1820,6 @@ footer {
    COBOL AI IMAGE (más pequeña)
 ===================================================== */
 
-.future-image img {
-    width: 170px; /* antes 220px */
-    border-radius: 10px;
-}
 /* líneas de código */
 
 .cobol-flow span {
@@ -1927,90 +1862,326 @@ footer {
    CONTACT SECTION
    Nuevo código
 ===================================================== */
+/* ==========================================
+   CONTACT SECTION
+========================================== */
 
-#contact {
-    text-align: center;
-    padding: 80px 20px;
+#contact{
+text-align:center;
+max-width:900px;
+margin:auto;
+padding:120px 20px;
 }
 
 
-/* texto introductorio */
+/* INTRO */
 
-.contact-intro {
-    max-width: 600px;
-    margin: 20px auto 40px auto;
-    line-height: 1.6;
+.contact-intro{
+margin-top:20px;
+opacity:0.85;
+line-height:1.7;
+font-size:1rem;
+}
+
+.contact-availability{
+margin-top:15px;
+font-size:0.95rem;
+opacity:0.8;
 }
 
 
-/* contenedor principal */
+/* CONTACT CONTAINER */
 
-.contact-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
+.contact-container{
+
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:50px;
+flex-wrap:wrap;
+
 }
 
 
-/* item de contacto */
+/* CONTACT CARD */
 
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 16px;
+.contact-card{
+
+display:flex;
+align-items:center;
+gap:15px;
+
+padding:18px 25px;
+
+border-radius:10px;
+
+background:rgba(255,255,255,0.03);
+
+border:1px solid rgba(255,255,255,0.08);
+
+transition:all 0.3s ease;
+
+cursor:pointer;
+
 }
 
 
-/* iconos */
+/* HOVER EFFECT */
 
-.contact-icon {
-    font-size: 18px;
+.contact-card:hover{
+
+transform:translateY(-6px);
+
+border-color:rgba(0,255,180,0.5);
+
+box-shadow:0 10px 25px rgba(0,255,180,0.1);
+
 }
 
 
-/* redes sociales */
+/* ICON */
 
-.social-container {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
+.contact-icon{
+
+font-size:1.4rem;
+
+background:rgba(0,255,180,0.1);
+
+padding:10px;
+
+border-radius:8px;
+
 }
 
 
-/* links sociales */
+/* INFO */
 
-.social-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.contact-info{
 
-    text-decoration: none;
-    font-weight: 500;
+display:flex;
+flex-direction:column;
+text-align:left;
 
-    padding: 8px 14px;
-    border-radius: 6px;
+}
 
-    transition: 0.3s;
+.contact-label{
+
+font-size:0.8rem;
+opacity:0.6;
+
+}
+
+.contact-info a{
+
+font-size:0.95rem;
+text-decoration:none;
+
 }
 
 
-/* hover profesional */
+/* SOCIAL */
 
-.social-link:hover {
-    transform: translateY(-2px);
-    opacity: 0.8;
+.social-container{
+
+margin-top:60px;
+
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+
 }
 
 
-/* iconos sociales */
+.social-link{
 
-.social-icon {
-    font-size: 16px;
+display:flex;
+align-items:center;
+gap:8px;
+
+padding:10px 16px;
+
+border-radius:8px;
+
+background:rgba(255,255,255,0.03);
+
+transition:all 0.25s ease;
+
+text-decoration:none;
+
 }
+
+
+.social-link:hover{
+
+transform:translateY(-4px);
+
+background:rgba(0,255,180,0.1);
+
+}
+
+
+/* NOTE */
+
+.contact-note{
+
+margin-top:50px;
+
+max-width:600px;
+
+margin-left:auto;
+margin-right:auto;
+
+opacity:0.7;
+
+font-size:0.9rem;
+
+line-height:1.6;
+
+}
+
+
+/* ==========================================
+   CONTACT TERMINAL
+========================================== */
+
+.contact-terminal{
+
+margin-top:70px;
+
+max-width:650px;
+
+margin-left:auto;
+margin-right:auto;
+
+background:#0b0b0b;
+
+border-radius:10px;
+
+border:1px solid rgba(255,255,255,0.08);
+
+overflow:hidden;
+
+font-family:monospace;
+
+box-shadow:0 15px 40px rgba(0,0,0,0.4);
+
+}
+
+
+/* HEADER */
+
+.terminal-header{
+
+display:flex;
+align-items:center;
+
+gap:8px;
+
+padding:10px 15px;
+
+background:#111;
+
+border-bottom:1px solid rgba(255,255,255,0.05);
+
+}
+
+.terminal-dot{
+
+width:10px;
+height:10px;
+
+border-radius:50%;
+
+display:inline-block;
+
+}
+
+.red{
+background:#ff5f56;
+}
+
+.yellow{
+background:#ffbd2e;
+}
+
+.green{
+background:#27c93f;
+}
+
+.terminal-title{
+
+margin-left:10px;
+
+font-size:0.8rem;
+
+opacity:0.6;
+
+}
+
+
+/* BODY */
+
+.terminal-body{
+
+padding:20px;
+
+font-size:0.9rem;
+
+line-height:1.6;
+
+color:#eaeaea;
+
+}
+
+
+/* PROMPT */
+
+.terminal-prompt{
+
+color:#00ffb4;
+
+margin-right:8px;
+
+}
+
+
+/* TEXT */
+
+.terminal-line-c{
+
+margin-bottom:6px;
+
+white-space:pre;
+
+}
+
+
+/* CURSOR */
+
+.typing::after{
+
+content:"|";
+
+margin-left:5px;
+
+animation:blink 1s infinite;
+
+}
+
+@keyframes blink{
+
+0%{opacity:1}
+50%{opacity:0}
+100%{opacity:1}
+
+}
+
+.email-text{
+color:#00ffb4;
+font-weight:500;
+}
+
 
 /* =====================================================
    FOOTER
