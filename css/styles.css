@@ -913,20 +913,11 @@ left:13px;
 }
 
 .projects-container{
-            display: flex;
-            gap: 20px;                  /* Espacio entre cada proyecto */
-            overflow-x: auto;           /* Permite el scroll horizontal */
-            scroll-snap-type: x mandatory; /* Activa el efecto imán/carrusel */
-            padding: 20px;
-            scroll-behavior: smooth;    /* Desplazamiento suave */
-            
-            /* Opcional: Oculta la barra de scroll en navegadores modernos */
-            scrollbar-width: none;      /* Firefox */
+
+    position:relative;
+    z-index:1;
 
 }
-        .projects-container::-webkit-scrollbar {
-            display: none;              /* Chrome, Safari y Edge */
-        }
 
 
 .projects-container{
@@ -938,15 +929,7 @@ left:13px;
     gap:30px;
 
     margin-top:40px;
-            flex: 0 0 300px;            /* No se encogen, no crecen, miden 300px de ancho */
-            scroll-snap-align: start;   /* Alínea el inicio de la tarjeta al scroll */
-            
-            /* Estilos estéticos (puedes cambiarlos por los tuyos) */
-            background-color: #f4f4f4;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            box-sizing: border-box;
+
 }
 
 .project-card{
