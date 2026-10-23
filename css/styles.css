@@ -924,7 +924,7 @@ left:13px;
             scrollbar-width: none;      /* Firefox */
 
 }
-        .carrusel-contenedor::-webkit-scrollbar {
+        .projects-container::-webkit-scrollbar {
             display: none;              /* Chrome, Safari y Edge */
         }
 
