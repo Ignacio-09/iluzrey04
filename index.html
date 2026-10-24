@@ -481,270 +481,217 @@
         <!-- ========================================
      Proyectos
 ======================================== -->
+
         <section id="proyectos">
+            <!-- Fondo animado de código COBOL: se conserva -->
             <div class="cobol-background"></div>
-
+        
             <h2 class="reveal">Proyectos</h2>
-
-            <div class="projects-container">
-
-                <!-- ========================================
-                    Proyecto 1
-                    Icono representa procesamiento batch
-                ======================================== -->
-
-                <div class="project-card reveal project-cobol">
-                    <h3>Data Cleaning de Cuentas en Sistema Core</h3>
-
-                    <p>
-                        Desarrollo de procesos en COBOL para depuración masiva de cuentas
-                        dentro de un sistema core financiero en entorno Mainframe Unisys.
-                        Procesamiento de millones de registros aplicando reglas de negocio
-                        para validar, limpiar y sincronizar información de clientes.
-                    </p>
-
-                    <div class="project-visual cobol-visual">
-
-                        <!-- NUEVO: icono representando procesamiento -->
-                        <div class="project-icon cobol-icon">
-                            ⚙
+        
+            <!-- Ventana visible del carrusel -->
+            <div class="projects-viewport">
+            
+                <!--
+                    Para agregar un proyecto, duplica un bloque .project-card
+                    dentro de este contenedor.
+                -->
+                <div class="projects-container" id="projects-track">
+                
+                    <!-- Proyecto 1 -->
+                    <div class="project-card reveal project-cobol">
+                        <h3>Data Cleaning de Cuentas en Sistema Core</h3>
+                    
+                        <p>
+                            Desarrollo de procesos en COBOL para depuración masiva de cuentas
+                            dentro de un sistema core financiero en entorno Mainframe Unisys.
+                            Procesamiento de millones de registros aplicando reglas de negocio
+                            para validar, limpiar y sincronizar información de clientes.
+                        </p>
+                    
+                        <div class="project-visual cobol-visual">
+                            <div class="project-icon cobol-icon">⚙</div>
+                            <span>PROCESSING ACCOUNTS...</span>
                         </div>
-
-                        <span>PROCESSING ACCOUNTS...</span>
-
-                    </div>
-
-                    <div class="project-tech">
-                        <span>COBOL</span>
-                        <span>Unisys MCP</span>
-                        <span>DMSII</span>
-                        <span>Batch Processing</span>
-                    </div>
-                </div>
-
-
-                <!-- ========================================
-             Proyecto 2
-             Icono representa análisis de flujo
-        ======================================== -->
-
-                <div class="project-card reveal project-analysis">
-                    <h3>Separación de Movimientos de Crédito y Débito</h3>
-
-                    <p>
-                        Análisis y refactorización de programas legacy para separar el
-                        procesamiento de movimientos financieros originalmente
-                        ejecutados en un mismo flujo. Incluye análisis del negocio,
-                        validación de reglas existentes, pruebas y comunicación de
-                        hallazgos al cliente.
-                    </p>
-
-                    <div class="project-visual analysis-visual">
-
-                        <!-- NUEVO: icono de análisis -->
-                        <div class="project-icon analysis-icon">
-                            ⎇
-                        </div>
-
-                        <span>FLOW ANALYSIS</span>
-
-                    </div>
-
-                    <div class="project-tech">
-                        <span>COBOL</span>
-                        <span>Mainframe</span>
-                        <span>DMSII</span>
-                        <span>System Analysis</span>
-                    </div>
-                </div>
-
-
-                <!-- ========================================
-             Proyecto 3
-             Icono representa desarrollo web
-        ======================================== -->
-
-                <div class="project-card reveal project-portfolio">
-                    <h3>Portafolio Web Profesional</h3>
-
-                    <p>
-                        Desarrollo de este portafolio personal utilizando HTML, CSS y
-                        JavaScript. Aunque no soy desarrollador web, aplico buenas
-                        prácticas de ingeniería de software y utilizo herramientas
-                        de inteligencia artificial para mejorar productividad,
-                        calidad de código y diseño.
-                    </p>
-
-                    <div class="project-visual portfolio-visual">
-
-                        <!-- NUEVO: icono desarrollo -->
-                        <div class="project-icon portfolio-icon">
-                            &lt;/&gt;
-                        </div>
-
-                        <span> BUILDING</span>
-
-                    </div>
-
-                    <div class="project-tech">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>AI Assisted Development</span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!-- ========================================
-     Tecnologías
-========================================= -->
-        <section id="tecnologias">
-            <h2 class="reveal">Technology Ecosystem</h2>
-            <p class="tech-subtitle reveal">
-                Technologies I use to build, maintain and modernize systems.
-            </p>
-            <div class="tech-wrapper">
-
-                <!-- Mainframe -->
-                <div class="tech-group reveal">
-                    <h3>Mainframe</h3>
-                    <div class="tech-container">
-                        <div class="tech-card primary-tech">
-                            <span class="tech-badge">Expert</span>
-                            <i class="devicon-ubuntu-plain colored"></i>
-                            <p>Unisys MCP</p>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="80"></div>
-                            </div>
-                            <span class="skill-percent">0%</span>
-                        </div>
-                        <div class="tech-card"><i class="devicon-linux-plain colored"></i>
-                            <p>WFL</p>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="40"></div>
-                            </div>
-                            <span class="skill-percent">0%</span>
-                        </div>
-                        <div class="tech-card"><i class="devicon-linux-plain colored"></i>
-                            <p>JCL</p>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="40"></div>
-                            </div>
-                            <span class="skill-percent">0%</span>
-                        </div>
-                        <div class="tech-card primary-tech">
-                            <span class="tech-badge">Expert</span>
-                            <i class="devicon-html5-plain colored">
-                            </i>
-                            <p>WebEnabler</p>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="80"></div>
-                            </div>
-                            <span class="skill-percent">0%</span>
+                    
+                        <div class="project-tech">
+                            <span>COBOL</span>
+                            <span>Unisys MCP</span>
+                            <span>DMSII</span>
+                            <span>Batch Processing</span>
                         </div>
                     </div>
-                </div>
-
-                <!-- Lenguajes -->
-                <div class="tech-group reveal">
-                    <h3>Lenguajes</h3>
-                    <div class="tech-container">
-                        <div class="tech-card"><i class="devicon-java-plain colored"></i>
-                            <p>Java</p>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="50"></div>
+                    <!-- ========================================
+                         Proyecto 4
+                         Integración de contratos desde archivos
+                    ======================================== -->
+                                    
+                    <div class="project-card reveal project-contracts">
+                        <h3>Integración de Contratos en Base de Datos</h3>
+                    
+                        <p>
+                            Desarrollo de un proceso de integración de contratos mediante la lectura
+                            y procesamiento de 10 archivos de entrada, aplicando reglas de negocio
+                            para incorporar la información correspondiente a la base de datos.
+                        </p>
+                    
+                        <div class="project-visual analysis-visual">
+                            <div class="project-icon analysis-icon">
+                                ⎇
                             </div>
-                            <span class="skill-percent">0%</span>
+                        
+                            <span>CONTRACT INTEGRATION</span>
                         </div>
-                        <div class="tech-card"><i class="devicon-javascript-plain colored"></i>
-                            <p>JavaScript</p>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="30"></div>
-                            </div>
-                            <span class="skill-percent">0%</span>
-                        </div>
-                        <div class="tech-card"><i class="devicon-php-plain colored"></i>
-                            <p>PHP</p>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="20"></div>
-                            </div>
-                            <span class="skill-percent">0%</span>
-                        </div>
-                        <div class="tech-card primary-tech">
-                            <span class="tech-badge">Expert</span>
-                            <i class="devicon-cobol-plain colored"></i>
-                            <p>COBOL</p>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="80"></div>
-                            </div>
-                            <span class="skill-percent">0%</span>
+                    
+                        <div class="project-tech">
+                            <span>COBOL</span>
+                            <span>File Processing</span>
+                            <span>Database</span>
+                            <span>Data Integration</span>
                         </div>
                     </div>
-                </div>
-
-                <!-- Bases de datos -->
-                <div class="tech-group reveal">
-                    <h3>Bases de Datos</h3>
-                    <div class="tech-container">
-                        <div class="tech-card"><i class="devicon-mysql-plain colored"></i>
-                            <p>SQL</p>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="70"></div>
-                            </div>
-                            <span class="skill-percent">0%</span>
+                    
+                    <!-- Proyecto 2 -->
+                    <div class="project-card reveal project-analysis">
+                        <h3>Separación de Movimientos de Crédito y Débito</h3>
+                    
+                        <p>
+                            Análisis y refactorización de programas legacy para separar el
+                            procesamiento de movimientos financieros originalmente
+                            ejecutados en un mismo flujo. Incluye análisis del negocio,
+                            validación de reglas existentes, pruebas y comunicación de
+                            hallazgos al cliente.
+                        </p>
+                    
+                        <div class="project-visual analysis-visual">
+                            <div class="project-icon analysis-icon">⎇</div>
+                            <span>FLOW ANALYSIS</span>
                         </div>
-                        <div class="tech-card"><i class="devicon-oracle-original colored"></i>
-                            <p>PL/SQL</p>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="50"></div>
-                            </div>
-                            <span class="skill-percent">0%</span>
-                        </div>
-                        <div class="tech-card"><i class="devicon-cobol-original colored"></i>
-                            <p>DB2</p>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="50"></div>
-                            </div>
-                            <span class="skill-percent">0%</span>
-                        </div>
-                        <div class="tech-card primary-tec">
-                            <span class="tech-badge">Expert</span>
-                            <i class="devicon-cobol-original colored"></i>
-                            <p>DMSII</p>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-level="80"></div>
-                            </div>
-                            <span class="skill-percent">0%</span>
+                    
+                        <div class="project-tech">
+                            <span>COBOL</span>
+                            <span>Mainframe</span>
+                            <span>DMSII</span>
+                            <span>System Analysis</span>
                         </div>
                     </div>
-                </div>
-
-                <!-- Herramientas -->
-                <div class="tech-group reveal">
-                    <h3>Herramientas</h3>
-                    <div class="tech-container">
-                        <div class="tech-card"><i class="devicon-git-plain colored"></i>
-                            <p>Git</p>
+                
+                    <!-- Proyecto 3 -->
+                    <div class="project-card reveal project-portfolio">
+                        <h3>Portafolio Web Profesional</h3>
+                    
+                        <p>
+                            Desarrollo de este portafolio personal utilizando HTML, CSS y
+                            JavaScript. Aunque no soy desarrollador web, aplico buenas
+                            prácticas de ingeniería de software y utilizo herramientas
+                            de inteligencia artificial para mejorar productividad,
+                            calidad de código y diseño.
+                        </p>
+                    
+                        <div class="project-visual portfolio-visual">
+                            <div class="project-icon portfolio-icon">&lt;/&gt;</div>
+                            <span>BUILDING</span>
                         </div>
-                        <div class="tech-card primary-tech">
-                            <span class="tech-badge">Expert</span>
-                            <i class="devicon-vscode-plain colored"></i>
-                            <p>VS Code</p>
-                        </div>
-                        <div class="tech-card"><i class="devicon-eclipse-plain colored"></i>
-                            <p>Eclipse</p>
-                        </div>
-                        <div class="tech-card"><i class="devicon-jira-plain colored"></i>
-                            <p>Jira</p>
-                        </div>
-                        <div class="tech-card"><i class="devicon-confluence-plain colored"></i>
-                            <p>Confluence</p>
+                    
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>AI Assisted Development</span>
                         </div>
                     </div>
+
+
+
+
+                    <!-- ========================================
+                         Proyecto 5
+                         Preparación personal en IBM Mainframe
+                    ======================================== -->
+
+                    <div class="project-card reveal project-ibm">
+                        <h3>IBM Mainframe — Learning Path</h3>
+                    
+                        <p>
+                            Proyecto personal de aprendizaje enfocado en ampliar mis conocimientos
+                            en entornos IBM Mainframe y explorar tecnologías como JCL, DB2 y CICS.
+                            Esta preparación representa una transición de aprendizaje desde mi
+                            experiencia previa con COBOL en Unisys MCP hacia el ecosistema IBM.
+                        </p>
+                    
+                        <div class="project-visual portfolio-visual">
+                            <div class="project-icon portfolio-icon">
+                                &lt;/&gt;
+                            </div>
+                        
+                            <span>LEARNING IN PROGRESS</span>
+                        </div>
+                    
+                        <div class="project-tech">
+                            <span>IBM Mainframe</span>
+                            <span>JCL</span>
+                            <span>DB2</span>
+                            <span>CICS</span>
+                            <span>COBOL</span>
+                        </div>
+                    </div>
+                    <!--
+                        PROYECTO NUEVO:
+                        Copia este bloque y pégalo aquí para agregar más tarjetas.
+                        Cambia el título, la descripción, el icono y las tecnologías.
+                    -->
+                    <!--
+                    <div class="project-card reveal project-new">
+                        <h3>Nombre del nuevo proyecto</h3>
+                    
+                        <p>
+                            Describe aquí el objetivo del proyecto, tu participación
+                            y las principales actividades realizadas.
+                        </p>
+                    
+                        <div class="project-visual portfolio-visual">
+                            <div class="project-icon portfolio-icon">&lt;/&gt;</div>
+                            <span>PROJECT STATUS</span>
+                        </div>
+                    
+                        <div class="project-tech">
+                            <span>Tecnología 1</span>
+                            <span>Tecnología 2</span>
+                            <span>Tecnología 3</span>
+                        </div>
+                    </div>
+                    -->
+                
                 </div>
             </div>
+        
+            <!-- Controles del carrusel -->
+            <div class="projects-carousel-controls" aria-label="Navegación de proyectos">
+            
+                <button
+                    class="projects-arrow"
+                    id="projects-prev"
+                    type="button"
+                    aria-label="Ver proyectos anteriores">
+                    &#10094;
+                </button>
+            
+                <div
+                    class="projects-dots"
+                    id="projects-dots"
+                    aria-label="Seleccionar proyecto">
+                </div>
+            
+                <button
+                    class="projects-arrow"
+                    id="projects-next"
+                    type="button"
+                    aria-label="Ver proyectos siguientes">
+                    &#10095;
+                </button>
+            
+            </div>
         </section>
+
         <!-- ========================================
              Engineering Mindset
         ========================================= -->

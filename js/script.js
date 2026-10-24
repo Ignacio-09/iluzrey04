@@ -567,3 +567,133 @@ links.forEach(link => {
 
     });
 });
+
+
+// =========================================
+// CARRUSEL DE PROYECTOS
+// Compatible con tarjetas agregadas desde HTML
+// =========================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById("projects-track");
+    const prevButton = document.getElementById("projects-prev");
+    const nextButton = document.getElementById("projects-next");
+    const dotsContainer = document.getElementById("projects-dots");
+
+    // Si la sección o sus controles no existen, no hace nada.
+    if (!track || !prevButton || !nextButton || !dotsContainer) {
+        return;
+    }
+
+    const cards = Array.from(track.querySelectorAll(".project-card"));
+
+    // No inicializar el carrusel si no hay tarjetas.
+    if (cards.length === 0) {
+        return;
+    }
+
+    let activeIndex = 0;
+
+    // Crear un indicador por cada tarjeta, automáticamente.
+    dotsContainer.replaceChildren();
+
+    const dots = cards.map((card, index) => {
+        const dot = document.createElement("button");
+
+        dot.type = "button";
+        dot.className = "projects-dot";
+        dot.setAttribute("aria-label", `Ver proyecto ${index + 1}`);
+
+        dot.addEventListener("click", () => {
+            goToProject(index);
+        });
+
+        dotsContainer.appendChild(dot);
+
+        return dot;
+    });
+
+    // Desplazarse hasta una tarjeta concreta.
+    function goToProject(index) {
+        activeIndex = Math.max(0, Math.min(index, cards.length - 1));
+
+        const card = cards[activeIndex];
+
+        const trackRect = track.getBoundingClientRect();
+        const cardRect = card.getBoundingClientRect();
+
+        const targetLeft =
+            track.scrollLeft + cardRect.left - trackRect.left;
+
+        track.scrollTo({
+            left: targetLeft,
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+                ? "auto"
+                : "smooth"
+        });
+
+        updateControls();
+    }
+
+    // Actualizar flechas e indicador seleccionado.
+    function updateControls() {
+        dots.forEach((dot, index) => {
+            const isActive = index === activeIndex;
+
+            dot.classList.toggle("is-active", isActive);
+            dot.setAttribute("aria-current", isActive ? "true" : "false");
+        });
+
+        prevButton.disabled = activeIndex === 0;
+        nextButton.disabled = activeIndex === cards.length - 1;
+    }
+
+    // Determinar qué tarjeta está más cerca del inicio visible.
+    function updateActiveFromScroll() {
+        const trackRect = track.getBoundingClientRect();
+
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        cards.forEach((card, index) => {
+            const cardRect = card.getBoundingClientRect();
+            const distance = Math.abs(cardRect.left - trackRect.left);
+
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+            }
+        });
+
+        activeIndex = closestIndex;
+        updateControls();
+    }
+
+    prevButton.addEventListener("click", () => {
+        goToProject(activeIndex - 1);
+    });
+
+    nextButton.addEventListener("click", () => {
+        goToProject(activeIndex + 1);
+    });
+
+    // Actualizar al deslizar con el dedo o usar la barra de desplazamiento.
+    let scrollTimeout;
+
+    track.addEventListener("scroll", () => {
+        window.clearTimeout(scrollTimeout);
+
+        scrollTimeout = window.setTimeout(() => {
+            updateActiveFromScroll();
+        }, 80);
+    }, { passive: true });
+
+    // Recalcular al cambiar entre escritorio y móvil.
+    window.addEventListener("resize", () => {
+        goToProject(activeIndex);
+    });
+
+    updateControls();
+});
+
+
