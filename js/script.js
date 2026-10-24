@@ -697,3 +697,169 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// =====================================================
+// PROJECT CARDS — FLIP 3D
+// Construye la cara trasera sin reemplazar el contenido
+// frontal ni modificar la lógica del carrusel.
+// =====================================================
+
+(() => {
+    const projectCards = document.querySelectorAll(
+        '#proyectos .projects-container > .project-card'
+    );
+
+    // Actividades basadas en la descripción actual de cada proyecto.
+    // No se atribuyen tecnologías ni responsabilidades adicionales.
+    const projectDetails = {
+        'project-cobol': {
+            title: 'Actividades realizadas',
+            items: [
+                'Desarrollo de programas COBOL74 para procesos de depuración de datos.',
+                'Aplicación de reglas de negocio a los registros procesados.',
+                'Operaciones sobre la base de datos DMSII.',
+                'Compilación, ejecución de procesos batch y pruebas unitarias.',
+                'Generación de logs, listados y documentación técnica.',
+                'Seguimiento de ejecuciones en UAT y monitoreo nocturno de producción.'
+            ]
+        },
+
+        'project-contracts': {
+            title: 'Actividades realizadas',
+            items: [
+                'Lectura y procesamiento de 10 archivos de entrada.',
+                'Aplicación de reglas de negocio a la información de los contratos.',
+                'Integración de la información correspondiente en la base de datos.'
+            ]
+        },
+
+        'project-analysis': {
+            title: 'Actividades realizadas',
+            items: [
+                'Análisis del flujo de movimientos de crédito y débito.',
+                'Revisión de la lógica existente y de las reglas de negocio.',
+                'Análisis de los cambios necesarios para separar el procesamiento.',
+                'Validación de los cambios mediante pruebas.',
+                'Comunicación de hallazgos y resultados al cliente.'
+            ]
+        },
+
+        'project-portfolio': {
+            title: 'Actividades realizadas',
+            items: [
+                'Estructuración del sitio mediante HTML semántico.',
+                'Diseño y adaptación visual con CSS.',
+                'Implementación de interacciones y animaciones con JavaScript.',
+                'Organización del contenido en secciones de perfil, experiencia y proyectos.',
+                'Uso de herramientas de IA como apoyo al desarrollo y revisión del código.'
+            ]
+        },
+
+        'project-ibm': {
+            title: 'Objetivos de aprendizaje',
+            items: [
+                'Ampliar conocimientos sobre el ecosistema IBM Mainframe.',
+                'Estudiar los fundamentos de JCL y la ejecución de trabajos batch.',
+                'Profundizar en conceptos de DB2.',
+                'Conocer los fundamentos de CICS.',
+                'Relacionar los conceptos estudiados con la experiencia previa en COBOL y Unisys MCP.',
+                'Continuar la preparación antes de abordar tareas prácticas en este entorno.'
+            ]
+        }
+    };
+
+    projectCards.forEach((card) => {
+        // Evita duplicar las caras si el script se inicializa de nuevo.
+        if (card.querySelector('.project-card-inner')) {
+            return;
+        }
+
+        const detailEntry = Object.keys(projectDetails).find(
+            (className) => card.classList.contains(className)
+        );
+
+        const details = detailEntry
+            ? projectDetails[detailEntry]
+            : {
+                title: 'Detalles del proyecto',
+                items: [
+                    'Consulta la descripción frontal para conocer el objetivo y las tecnologías del proyecto.'
+                ]
+            };
+
+        // Crea las caras.
+        const inner = document.createElement('div');
+        inner.className = 'project-card-inner';
+
+        const front = document.createElement('div');
+        front.className = 'project-card-front';
+        front.setAttribute('aria-hidden', 'false');
+
+        const back = document.createElement('div');
+        back.className = 'project-card-back';
+        back.setAttribute('aria-hidden', 'true');
+        back.inert = true;
+
+        // Mueve el contenido original a la cara frontal.
+        while (card.firstChild) {
+            front.appendChild(card.firstChild);
+        }
+
+        // Construye la cara posterior.
+        const heading = document.createElement('h3');
+        heading.textContent = details.title;
+        back.appendChild(heading);
+
+        const list = document.createElement('ul');
+
+        details.items.forEach((itemText) => {
+            const item = document.createElement('li');
+            item.textContent = itemText;
+            list.appendChild(item);
+        });
+
+        back.appendChild(list);
+
+        // Botón de la cara frontal.
+        const flipButton = document.createElement('button');
+        flipButton.type = 'button';
+        flipButton.className = 'project-flip-button';
+        flipButton.textContent = 'Ver detalles';
+        flipButton.setAttribute('aria-label', 'Ver detalles del proyecto');
+
+        // Botón de regreso.
+        const backButton = document.createElement('button');
+        backButton.type = 'button';
+        backButton.className = 'project-flip-button';
+        backButton.textContent = 'Volver';
+        backButton.setAttribute('aria-label', 'Volver al frente del proyecto');
+
+        front.appendChild(flipButton);
+        back.appendChild(backButton);
+
+        inner.appendChild(front);
+        inner.appendChild(back);
+        card.appendChild(inner);
+
+        // Controla el giro y evita el acceso por teclado a la cara oculta.
+        function setFlipped(flipped) {
+            inner.classList.toggle('is-flipped', flipped);
+
+            front.setAttribute('aria-hidden', String(flipped));
+            back.setAttribute('aria-hidden', String(!flipped));
+
+            front.inert = flipped;
+            back.inert = !flipped;
+        }
+
+        flipButton.addEventListener('click', () => {
+            setFlipped(true);
+            backButton.focus();
+        });
+
+        backButton.addEventListener('click', () => {
+            setFlipped(false);
+            flipButton.focus();
+        });
+    });
+})();
+

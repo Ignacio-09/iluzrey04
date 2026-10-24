@@ -2610,3 +2610,204 @@ h2{
     text-shadow: 0 0 10px rgba(56,189,248,0.25);
 }
 
+
+/* =====================================================
+   PROJECT CARDS — FLIP 3D
+   Se conserva el carrusel y el fondo COBOL existente.
+===================================================== */
+
+/* La tarjeta exterior conserva su posición en el carrusel. */
+#proyectos .projects-container > .project-card {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    overflow: visible;
+    perspective: 1200px;
+    transition: transform 0.35s ease;
+}
+
+/* Evita que el hover original interfiera con los bordes. */
+#proyectos .projects-container > .project-card:hover {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+/* Contenedor interior que realiza el giro. */
+#proyectos .project-card-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Las dos caras ocupan la misma celda y comparten altura. */
+#proyectos .project-card-front,
+#proyectos .project-card-back {
+    grid-area: 1 / 1;
+    min-width: 0;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #1f2a35;
+    background: #111821;
+    overflow-wrap: anywhere;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* La cara frontal conserva el diseño actual. */
+#proyectos .project-card-front {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    transform: rotateY(0deg);
+}
+
+#proyectos .project-card-front > p {
+    flex-grow: 1;
+}
+
+/* La cara trasera muestra las actividades. */
+#proyectos .project-card-back {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    transform: rotateY(180deg);
+}
+
+#proyectos .project-card-back h3 {
+    color: #38bdf8;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+}
+
+#proyectos .project-card-back ul {
+    padding-left: 20px;
+    margin: 0 0 20px;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+#proyectos .project-card-back li {
+    margin-bottom: 10px;
+}
+
+#proyectos .project-card-inner.is-flipped {
+    transform: rotateY(180deg);
+}
+
+/* Botones Ver detrás / Volver. */
+#proyectos .project-flip-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 42px;
+    margin-top: auto;
+    padding: 10px 16px;
+    border: 1px solid #00adb5;
+    border-radius: 7px;
+    background: rgba(0, 173, 181, 0.08);
+    color: #7dd3fc;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+#proyectos .project-flip-button:hover {
+    background: #00adb5;
+    border-color: #00adb5;
+    color: #0f172a;
+}
+
+#proyectos .project-flip-button:focus-visible {
+    outline: 2px solid #7dd3fc;
+    outline-offset: 4px;
+}
+
+/* El botón queda al final de la cara frontal. */
+#proyectos .project-card-front > .project-flip-button {
+    margin-top: 18px;
+}
+
+/* El hover eleva la tarjeta sin alterar su rotación interior. */
+@media (hover: hover) and (pointer: fine) {
+    #proyectos .projects-container > .project-card:hover
+    .project-card-front,
+    #proyectos .projects-container > .project-card:hover
+    .project-card-back {
+        border-color: #00adb5;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    }
+}
+
+/* Ajustes para pantallas pequeñas. */
+@media (max-width: 768px) {
+    #proyectos .project-card-front,
+    #proyectos .project-card-back {
+        padding: 20px;
+    }
+
+    #proyectos .project-card-back ul {
+        font-size: 0.88rem;
+    }
+
+    #proyectos .project-flip-button {
+        min-height: 44px;
+    }
+}
+
+/* Respeta la preferencia del sistema por menos movimiento. */
+@media (prefers-reduced-motion: reduce) {
+    #proyectos .project-card-inner {
+        transition: none;
+    }
+
+    #proyectos .project-flip-button {
+        transition: none;
+    }
+}
+
+/* Botones de detalles de proyectos */
+#proyectos .project-flip-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: fit-content;
+    min-height: 42px;
+    margin: 18px auto 0;
+    padding: 10px 22px;
+
+    background: transparent;
+    border: 1px solid #00adb5;
+    border-radius: 999px;
+
+    color: #67e8f9;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+#proyectos .project-flip-button:hover {
+    background: #00adb5;
+    color: #0f172a;
+    box-shadow: 0 0 18px rgba(0, 173, 181, 0.2);
+    transform: translateY(-2px);
+}
+
+#proyectos .project-flip-button:focus-visible {
+    outline: 2px solid #67e8f9;
+    outline-offset: 4px;
+}
