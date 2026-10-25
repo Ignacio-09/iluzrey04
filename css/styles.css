@@ -1740,187 +1740,365 @@ left:13px;
 }
 
 
+/* ===========================================
+   TECNOLOGÍAS — ECOSISTEMA TÉCNICO
+=========================================== */
+
+#tecnologias {
+    position: relative;
+    isolation: isolate;
+    padding: 100px 24px;
+    overflow: hidden;
+    background-color: #0f172a;
+}
+
+/* Cuadrícula tecnológica de fondo */
+
+#tecnologias::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+
+    background-size: 42px 42px;
+    pointer-events: none;
+}
+
+/* Encabezado */
+
+#tecnologias h2 {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+#tecnologias .tech-subtitle {
+    max-width: 620px;
+    margin: 0 auto 58px;
+
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* Contenedor principal */
+
+#tecnologias .tech-wrapper {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+/* Categorías */
+
+#tecnologias .tech-group {
+    margin-bottom: 48px;
+}
+
+#tecnologias .tech-group:last-child {
+    margin-bottom: 0;
+}
+
+#tecnologias .tech-group h3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+    color: #67e8f9;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+#tecnologias .tech-group h3::before {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 17px;
+    flex-shrink: 0;
+
+    border-radius: 3px;
+    background: #00adb5;
+    box-shadow: 0 0 10px rgba(0, 173, 181, 0.25);
+}
+
+/* Cuadrícula de tecnologías */
+
+#tecnologias .tech-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+
+    margin-top: 0;
+}
+
+/* Tarjetas */
+
+#tecnologias .tech-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    min-height: 170px;
+    padding: 25px 16px 18px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        145deg,
+        rgba(30, 41, 59, 0.68),
+        rgba(15, 23, 42, 0.68)
+    );
+
+    border: 1px solid rgba(148, 163, 184, 0.13);
+    border-radius: 12px;
+
+    backdrop-filter: blur(6px);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#tecnologias .tech-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(0, 173, 181, 0.5);
+
+    background: linear-gradient(
+        145deg,
+        rgba(15, 45, 58, 0.8),
+        rgba(15, 23, 42, 0.8)
+    );
+
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+/* Iconos */
+
+#tecnologias .tech-card > i {
+    display: block;
+    margin-bottom: 15px;
+
+    font-size: 2.25rem;
+    line-height: 1;
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+#tecnologias .tech-card:hover > i {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 7px rgba(34, 211, 238, 0.2));
+}
+
+/* Nombre de la tecnología */
+
+#tecnologias .tech-card p {
+    margin: 0;
+
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* Tecnologías destacadas */
+
+#tecnologias .tech-card.primary-tech {
+    border-color: rgba(0, 173, 181, 0.28);
+    background: linear-gradient(
+        145deg,
+        rgba(0, 173, 181, 0.09),
+        rgba(15, 23, 42, 0.72)
+    );
+}
+
+#tecnologias .tech-card.primary-tech:hover {
+    border-color: rgba(0, 173, 181, 0.65);
+}
+
+/* Etiqueta superior */
+
+#tecnologias .tech-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    padding: 4px 7px;
+
+    color: #67e8f9;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+
+    background: rgba(0, 173, 181, 0.1);
+    border: 1px solid rgba(0, 173, 181, 0.24);
+    border-radius: 5px;
+}
+
+/* Barras de nivel */
+
+#tecnologias .skill-bar {
+    width: 100%;
+    height: 4px;
+    margin-top: 15px;
+
+    overflow: hidden;
+    background: rgba(148, 163, 184, 0.15);
+    border-radius: 10px;
+}
+
+#tecnologias .skill-level {
+    width: 0;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #00adb5,
+        #67e8f9
+    );
+
+    border-radius: inherit;
+    box-shadow: 0 0 8px rgba(0, 173, 181, 0.25);
+
+    transition: width 1.2s ease;
+}
+
+/* Porcentaje */
+
+#tecnologias .skill-percent {
+    align-self: flex-end;
+    margin-top: 7px;
+
+    color: #67e8f9;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3px;
+}
+
+
+#tecnologias .tech-wordmark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 64px;
+    min-height: 42px;
+    margin-bottom: 15px;
+
+    color: #67e8f9;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+
+    background: rgba(0, 173, 181, 0.08);
+    border: 1px solid rgba(0, 173, 181, 0.22);
+    border-radius: 8px;
+}
+
 
 /* ===========================================
-   TECNOLOGÍAS
+   RESPONSIVE
 =========================================== */
-#tecnologias { padding: 80px 20px; background-color: #0f172a; }
-#tecnologias h2 { text-align: center; margin-bottom: 50px; }
 
-#tecnologias{
-    position:relative;
-}
-
-#tecnologias::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size:40px 40px;
-    pointer-events:none;
-}
-
-
-.tech-subtitle{
-    text-align:center;
-    max-width:600px;
-    margin:10px auto 40px;
-    font-size:14px;
-    color:var(--text-secondary);
-}
-
-
-
-.tech-wrapper { max-width: 900px; margin: auto; }
-.tech-group { margin-bottom: 50px; }
-
-.tech-group h3{
-    font-size:14px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    margin-bottom:15px;
-    color:var(--accent);
-}
-
-.tech-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
-    gap:20px;
-    margin-top:20px;
-}
-
-.tech-card{
-
-    position:relative;
-
-    background:linear-gradient(
-        145deg,
-        rgba(255,255,255,0.05),
-        rgba(255,255,255,0.01)
-    );
-
-    border:1px solid rgba(255,255,255,0.08);
-
-    border-radius:12px;
-
-    padding:20px;
-
-    text-align:center;
-
-    transition:all .3s ease;
-
-}
-.tech-card i{
-    font-size:36px;
-    margin-bottom:10px;
-    transition:transform .3s ease;
-}
-
-.tech-card:hover i{
-    transform:scale(1.15);
-}
-.tech-card p{
-    font-size:14px;
-    color:var(--text-secondary);
-}
-
-.tech-card:hover{
-
-    transform:translateY(-6px);
-
-    border-color:var(--accent);
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,0.4),
-        0 0 10px rgba(0,255,170,0.2);
-
-}
-
-.tech-card{
-    position:relative;
-}
-
-.tech-card{
-
-    background:linear-gradient(
-        145deg,
-        rgba(255,255,255,0.04),
-        rgba(255,255,255,0.01)
-    );
-
-    border:1px solid rgba(255,255,255,0.06);
-
-    backdrop-filter:blur(6px);
-
-}
-
-.tech-badge{
-    position:absolute;
-    top:10px;
-    right:10px;
-    font-size:10px;
-    padding:3px 7px;
-    border-radius:6px;
-    background:rgba(0,255,170,0.12);
-    border:1px solid rgba(0,255,170,0.4);
-    color:var(--accent);
-    font-weight:500;
-    letter-spacing:.5px;
-}
-
-.tech-card img { width: 50px; margin-bottom: 10px; }
-/* Indicador level de tecnologia */
-.skill-bar{
-    width:100%;
-    height:6px;
-    background:rgba(255,255,255,0.12);
-    border-radius:4px;
-    margin-top:10px;
-    overflow:hidden;
-}
-
-.skill-level{
-    height:100%;
-    width:0;
-    border-radius:4px;
-
-    background:linear-gradient(
-        90deg,
-        #00ffc8,
-        #00ffa2,
-        #00ffc8
-    );
-
-    background-size:200% 100%;
-    animation:skillFlow 2s linear infinite;
-
-    transition:width 1.2s ease;
-}
-
-@keyframes skillFlow{
-    0%{
-        background-position:0% 0;
+@media (max-width: 900px) {
+    #tecnologias {
+        padding: 85px 22px;
     }
-    100%{
-        background-position:200% 0;
+
+    #tecnologias .tech-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    #tecnologias .tech-card {
+        min-height: 160px;
     }
 }
 
+@media (max-width: 600px) {
+    #tecnologias {
+        padding: 70px 18px;
+    }
 
-.skill-level{
-    box-shadow:0 0 6px rgba(0,255,200,0.6);
+    #tecnologias .tech-subtitle {
+        margin-bottom: 42px;
+        font-size: 0.85rem;
+    }
+
+    #tecnologias .tech-group {
+        margin-bottom: 38px;
+    }
+
+    #tecnologias .tech-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #tecnologias .tech-card {
+        min-height: 150px;
+        padding: 25px 12px 15px;
+    }
+
+    #tecnologias .tech-card > i {
+        font-size: 2rem;
+    }
+
+    #tecnologias .tech-card p {
+        font-size: 0.8rem;
+    }
+
+    #tecnologias .tech-badge {
+        top: 8px;
+        right: 8px;
+        font-size: 0.5rem;
+    }
 }
 
-.skill-percent{
-    font-size:12px;
-    margin-top:6px;
-    color:var(--accent);
-    opacity:0.9;
-    letter-spacing:0.5px;
+@media (max-width: 360px) {
+    #tecnologias {
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    #tecnologias .tech-container {
+        gap: 9px;
+    }
+
+    #tecnologias .tech-card {
+        min-height: 140px;
+        padding-right: 9px;
+        padding-left: 9px;
+    }
 }
 
+/* Respeta la preferencia de movimiento del usuario */
+
+@media (prefers-reduced-motion: reduce) {
+    #tecnologias .tech-card,
+    #tecnologias .tech-card > i,
+    #tecnologias .skill-level {
+        transition: none;
+    }
+}
 
 /* SECCION  PIENSA COMO INGENIERO */
 
