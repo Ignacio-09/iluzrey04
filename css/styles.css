@@ -678,95 +678,261 @@ left:13px;
 /* ===========================================
    HABILIDADES
 =========================================== */
-#habilidades { padding: 80px 20px; background-color: #020617; }
-#habilidades h2 { text-align: center; margin-bottom: 50px; }
-.skills-container {
-    max-width: 700px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
+
+
 /* ===========================================
-   HABILIDADES - MEJORA VISUAL
+   HABILIDADES — TECHNICAL PROFILE
 =========================================== */
 
-.skill-category {
+#habilidades {
+    padding: 90px 20px;
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(56, 189, 248, 0.055),
+            transparent 55%
+        ),
+        #020617;
+    scroll-margin-top: 90px;
+}
 
-    background: #1e293b;
+#habilidades h2 {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+/* Contenedor de categorías */
+
+#habilidades .skills-container {
+    max-width: 1000px;
+    margin: 42px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+}
+
+/* ===========================================
+   CATEGORY CARDS
+=========================================== */
+
+#habilidades .skill-category {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+
+    padding: 26px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(30, 41, 59, 0.88),
+        rgba(15, 23, 42, 0.92)
+    );
+
     color: #e2e8f0;
 
-    padding: 25px;
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 16px;
 
-    border-radius: 12px;
-
-    border: 1px solid #1f2937;
-
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
 
     transition:
         transform 0.3s ease,
-        box-shadow 0.3s ease;
-
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
 }
 
-.skill-category::before {
-    background: #38bdf8;
+/* Línea decorativa superior */
+
+#habilidades .skill-category::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 26px;
+    right: 26px;
+
+    height: 2px;
+    border-radius: 0 0 4px 4px;
+
+    background: linear-gradient(
+        90deg,
+        #38bdf8,
+        rgba(56, 189, 248, 0)
+    );
+
+    opacity: 0.65;
 }
 
-.skill-category:hover {
+/* Efectos de interacción */
 
-    transform: translateY(-6px);
+#habilidades .skill-category:hover {
+    transform: translateY(-4px);
 
-    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+    border-color: rgba(56, 189, 248, 0.28);
 
+    box-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.24),
+        0 0 22px rgba(56, 189, 248, 0.035);
 }
 
-.skill-category h3 {
+/* Encabezados */
 
-    margin-bottom: 20px;
+#habilidades .skill-category h3 {
+    margin: 0 0 22px;
 
+    color: #e2e8f0;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+}
+
+/* ===========================================
+   MAINFRAME — PRIMARY SPECIALTY
+=========================================== */
+
+#habilidades .skill-category:first-child {
+    background: linear-gradient(
+        145deg,
+        rgba(14, 116, 144, 0.17),
+        rgba(15, 23, 42, 0.96) 75%
+    );
+
+    border-color: rgba(56, 189, 248, 0.28);
+}
+
+#habilidades .skill-category:first-child::before {
+    opacity: 1;
+}
+
+#habilidades .skill-category:first-child h3 {
     color: #38bdf8;
-
 }
 
-/* Skills chips */
+/* ===========================================
+   SKILL CHIPS
+=========================================== */
 
-.skill {
-
-    background: #0f172a;
-
-    border: 1px solid #1f2937;
-
-    color: #cbd5f5;
-
-    padding: 8px 12px;
-
-    border-radius: 20px;
-
-    font-size: 0.9rem;
-
+#habilidades .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
 }
 
-.skill:hover {
+#habilidades .skill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 
-    background: #1e293b;
+    min-height: 38px;
+    padding: 8px 13px;
 
-    transform: scale(1.05);
+    background: rgba(2, 6, 23, 0.52);
+    border: 1px solid rgba(148, 163, 184, 0.17);
+    border-radius: 9px;
 
+    color: #cbd5e1;
+
+    font-size: 0.84rem;
+    line-height: 1.35;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
 }
 
-/* Tarjeta de habilidades blandas ocupa dos columnas */
-.soft-skills{
-    grid-column: span 2;
+#habilidades .skill i {
+    font-size: 1rem;
+    color: #38bdf8;
 }
 
-@media (max-width: 768px){
-    .soft-skills{
-        grid-column: span 1;
+#habilidades .skill:hover {
+    transform: translateY(-2px);
+
+    background: rgba(56, 189, 248, 0.08);
+    border-color: rgba(56, 189, 248, 0.38);
+
+    color: #f1f5f9;
+}
+
+/* ===========================================
+   SOFT SKILLS
+=========================================== */
+
+#habilidades .soft-skills {
+    grid-column: 1 / -1;
+}
+
+#habilidades .soft-skills .skill {
+    background: rgba(2, 6, 23, 0.32);
+}
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media (max-width: 768px) {
+    #habilidades {
+        padding: 70px 18px;
+    }
+
+    #habilidades .skills-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        margin-top: 32px;
+    }
+
+    #habilidades .skill-category {
+        padding: 23px;
+    }
+
+    #habilidades .soft-skills {
+        grid-column: auto;
     }
 }
+
+@media (max-width: 380px) {
+    #habilidades {
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    #habilidades .skill-category {
+        padding: 19px;
+    }
+
+    #habilidades .skills-grid {
+        gap: 8px;
+    }
+
+    #habilidades .skill {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Accesibilidad: movimiento reducido */
+
+@media (prefers-reduced-motion: reduce) {
+    #habilidades .skill-category,
+    #habilidades .skill {
+        transition: none;
+    }
+
+    #habilidades .skill-category:hover,
+    #habilidades .skill:hover {
+        transform: none;
+    }
+}
+
 
 
 
