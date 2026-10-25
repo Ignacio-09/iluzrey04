@@ -449,37 +449,34 @@ body {
     margin: 60px auto;
 }
 
-/* línea central */
 
-.timeline::before{
 
-    content:"";
-    position:absolute;
-
-    left:50%;
-    top:0;
-
-    transform:translateX(-50%);
-
-    width:3px;
-
-    height:0;
-
-    background:linear-gradient(
-        to bottom,
-        #00adb5,
-        #393e46
-    );
-
-    transition:height 1.5s ease;
-
+/* Línea central: se dibuja conforme avanza el scroll */
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, #00adb5, #393e46);
+    transform: translateX(-50%);
+    transform-origin: top;
+    transform: translateX(-50%) scaleY(0);
+    transition: none;
 }
 
-.timeline.animate::before{
-
-    height:100%;
-
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
 }
+
+
+.timeline::before {
+    transform: translateX(-50%) scaleY(var(--timeline-progress, 0));
+}
+
 
 .timeline-item{
 
@@ -2810,4 +2807,225 @@ h2{
 #proyectos .project-flip-button:focus-visible {
     outline: 2px solid #67e8f9;
     outline-offset: 4px;
+}
+
+
+/* =====================================================
+   EXPERIENCIA PROFESIONAL — MAINFRAME MODERNO
+   Estética inspirada en terminales y sistemas legacy.
+   Conserva el timeline, sus animaciones y su estructura.
+===================================================== */
+
+#experiencia .timeline-content:not(.cobol-moment) {
+    position: relative;
+    overflow: hidden;
+    padding: 28px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(16, 28, 25, 0.98),
+            rgba(12, 19, 26, 0.98) 65%
+        );
+    border: 1px solid #263b35;
+    border-left: 3px solid #4ade80;
+    border-radius: 10px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Patrón técnico sutil en la esquina superior derecha. */
+#experiencia .timeline-content:not(.cobol-moment)::after {
+    content: "SYS";
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    color: rgba(74, 222, 128, 0.13);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
+}
+
+/* Fecha: estilo de etiqueta de registro del sistema. */
+#experiencia .timeline-content:not(.cobol-moment) .timeline-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 18px;
+    padding: 6px 10px;
+    color: #86efac;
+    background: rgba(74, 222, 128, 0.07);
+    border: 1px solid rgba(74, 222, 128, 0.25);
+    border-radius: 4px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+}
+
+/* Indicador de registro activo. */
+#experiencia .timeline-content:not(.cobol-moment) .timeline-date::before {
+    content: ">";
+    color: #4ade80;
+    font-weight: 700;
+}
+
+/* Cargo y empresa. */
+#experiencia .timeline-content:not(.cobol-moment) h3 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 16px;
+    color: #e2e8f0;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+}
+
+/* Descripción del puesto. */
+#experiencia .timeline-content:not(.cobol-moment) > p {
+    margin: 0 0 20px;
+    color: #aab8c5;
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+
+/* Encabezado visual de las responsabilidades. */
+#experiencia .timeline-content:not(.cobol-moment) > ul {
+    position: relative;
+    margin: 0 0 22px;
+    padding: 16px 0 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.16);
+    list-style: none;
+}
+
+/* Etiqueta técnica encima de la lista. */
+#experiencia .timeline-content:not(.cobol-moment) > ul::before {
+    content: "ACTIVIDADES PRINCIPALES";
+    display: block;
+    margin-bottom: 14px;
+    color: #4ade80;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+/* Actividades individuales. */
+#experiencia .timeline-content:not(.cobol-moment) > ul > li {
+    position: relative;
+    margin: 0 0 12px;
+    padding-left: 20px;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+/* Marcador inspirado en comandos de terminal. */
+#experiencia .timeline-content:not(.cobol-moment) > ul > li::before {
+    content: ">";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #4ade80;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+}
+
+/* Tecnologías como módulos del sistema. */
+#experiencia .timeline-content:not(.cobol-moment) .timeline-tech {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+/* Etiqueta previa a las tecnologías. */
+#experiencia .timeline-content:not(.cobol-moment) .timeline-tech::before {
+    content: "STACK";
+    flex-basis: 100%;
+    margin-bottom: 3px;
+    color: #7c8b98;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+/* Etiquetas de tecnologías. */
+#experiencia .timeline-content:not(.cobol-moment) .timeline-tech span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    color: #a7f3d0;
+    background: rgba(74, 222, 128, 0.055);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    border-radius: 4px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
+}
+
+/* Hover sutil: mantiene el carácter profesional. */
+#experiencia .timeline-content:not(.cobol-moment):hover {
+    border-color: rgba(74, 222, 128, 0.5);
+    border-left-color: #4ade80;
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.25),
+        0 0 18px rgba(74, 222, 128, 0.045);
+}
+
+#experiencia .timeline-content:not(.cobol-moment)
+.timeline-tech span:hover {
+    color: #dcfce7;
+    background: rgba(74, 222, 128, 0.12);
+    border-color: rgba(74, 222, 128, 0.45);
+}
+
+/* Adaptación para dispositivos móviles. */
+@media (max-width: 768px) {
+    #experiencia .timeline-content:not(.cobol-moment) {
+        padding: 22px 18px;
+    }
+
+    #experiencia .timeline-content:not(.cobol-moment) h3 {
+        font-size: 1.15rem;
+        padding-right: 12px;
+    }
+
+    #experiencia .timeline-content:not(.cobol-moment) > p {
+        font-size: 0.92rem;
+    }
+
+    #experiencia .timeline-content:not(.cobol-moment) > ul > li {
+        font-size: 0.88rem;
+    }
+
+    #experiencia .timeline-content:not(.cobol-moment)::after {
+        top: 12px;
+        right: 12px;
+        font-size: 1.8rem;
+    }
+}
+
+/* Respeta la preferencia de movimiento reducido. */
+@media (prefers-reduced-motion: reduce) {
+    #experiencia .timeline-content:not(.cobol-moment),
+    #experiencia .timeline-content:not(.cobol-moment)
+    .timeline-tech span {
+        transition: none;
+    }
 }

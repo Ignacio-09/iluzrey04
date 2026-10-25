@@ -304,25 +304,43 @@ timelineItems.forEach(item => {
 
 });
 
+
+
+
 const timeline = document.querySelector(".timeline");
 
-const timelineLineObserver = new IntersectionObserver(entries => {
+if (timeline) {
+    const timelineLine = timeline;
 
-    entries.forEach(entry => {
+    function updateTimelineLine() {
+        const rect = timelineLine.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
 
-        if(entry.isIntersecting){
+        // El dibujo comienza cuando la sección entra en pantalla.
+        const start = viewportHeight * 0.75;
+        const distance = viewportHeight - start;
 
-            timeline.classList.add("animate");
+        const progress = Math.max(
+            0,
+            Math.min(1, (start - rect.top) / (rect.height + distance))
+        );
 
-        }
+        timelineLine.style.setProperty(
+            "--timeline-progress",
+            progress
+        );
+    }
 
+    window.addEventListener("scroll", updateTimelineLine, {
+        passive: true
     });
 
-},{
-    threshold:0.2
-});
+    window.addEventListener("resize", updateTimelineLine);
 
-timelineLineObserver.observe(timeline);
+    updateTimelineLine();
+}
+
+
 
 const counter = document.getElementById("exp-years");
 
