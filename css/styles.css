@@ -3359,32 +3359,37 @@ h2{
     letter-spacing: 0.1em;
 }
 
-/* Etiquetas de tecnologías. */
+
+/* Etiquetas de tecnologías */
 #experiencia .timeline-content:not(.cobol-moment) .timeline-tech span {
     display: inline-flex;
     align-items: center;
     gap: 7px;
     padding: 7px 10px;
-    color: #a7f3d0;
-    background: rgba(74, 222, 128, 0.055);
-    border: 1px solid rgba(74, 222, 128, 0.2);
+
+    color: #a5f3fc;
+    background: rgba(0, 173, 181, 0.07);
+    border: 1px solid rgba(0, 173, 181, 0.25);
     border-radius: 4px;
+
     font-family: "JetBrains Mono", monospace;
     font-size: 0.72rem;
     line-height: 1.4;
+
     transition:
         background 0.25s ease,
         border-color 0.25s ease,
-        color 0.25s ease;
+        color 0.25s ease,
+        transform 0.25s ease;
 }
 
-/* Hover sutil: mantiene el carácter profesional. */
-#experiencia .timeline-content:not(.cobol-moment):hover {
-    border-color: rgba(74, 222, 128, 0.5);
-    border-left-color: #4ade80;
-    box-shadow:
-        0 12px 32px rgba(0, 0, 0, 0.25),
-        0 0 18px rgba(74, 222, 128, 0.045);
+/* Hover de las tecnologías */
+#experiencia .timeline-content:not(.cobol-moment)
+.timeline-tech span:hover {
+    color: #ecfeff;
+    background: rgba(0, 173, 181, 0.16);
+    border-color: rgba(0, 173, 181, 0.6);
+    transform: translateY(-2px);
 }
 
 #experiencia .timeline-content:not(.cobol-moment)
