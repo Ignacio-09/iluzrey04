@@ -204,79 +204,6 @@ body {
 }
 
 
-/* ===========================================
-   HERO SECTION
-=========================================== */
-.hero {
-    padding: 120px 0;
-}
-.hero-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-}
-.hero-text h2 { font-size: 40px; margin-bottom: 10px; }
-.subtitle {
-    color: #38bdf8;
-    font-family: 'JetBrains Mono', monospace;
-    margin-bottom: 15px;
-}
-.hero-description { color: #94a3b8; margin-bottom: 25px; max-width: 450px; }
-.hero-image img {
-    width: 220px;
-    border-radius: 50%;
-    border: 3px solid #38bdf8;
-    box-shadow: 0 0 20px rgba(56,189,248,0.4);
-}
-.hero-buttons { display: flex; gap: 15px; }
-
-/* Buttons */
-.btn-primary {
-    background: #38bdf8;
-    color: #0f172a;
-    padding: 10px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
-.btn-primary:hover { background: #0ea5e9; }
-.btn-secondary {
-    border: 1px solid #38bdf8;
-    padding: 10px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #38bdf8;
-    transition: 0.3s;
-}
-.btn-secondary:hover {
-    background: #38bdf8;
-    color: #0f172a;
-}
-
-/* Responsive hero */
-@media (max-width: 900px){
-
-    .hero-content{
-        flex-direction: column;
-        text-align: center;
-        gap: 4rem;
-    }
-
-}
-
-@media (max-width: 900px){
-
-    .hero-image img{
-        max-width: 220px;
-        margin: 0 auto;
-        display: block;
-    }
-
-}
-
-
 #sobre-mi{
     margin-top: 4rem;
     scroll-margin-top: 90px
@@ -1819,54 +1746,6 @@ footer {
 }
 
 
-/* =====================================================
-   HERO IMAGE FLIP EFFECT
-   Nuevo código - no reemplaza reglas existentes
-===================================================== */
-
-/* Perspectiva para efecto 3D */
-.hero-image-flip {
-    perspective: 1000px;
-    width: 260px; /* respeta tamaño aproximado actual */
-}
-
-/* Contenedor que rota */
-.hero-image-inner {
-    position: relative;
-    width: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-/* Rotación al pasar el mouse */
-.hero-image-flip:hover .hero-image-inner {
-    transform: rotateY(180deg);
-}
-
-/* Caras de la imagen */
-.hero-image-front,
-.hero-image-back {
-    position: absolute;
-    width: 100%;
-    backface-visibility: hidden;
-}
-
-/* Imagen frontal */
-.hero-image-front img {
-    width: 100%;
-    border-radius: 50%;
-}
-
-/* Imagen trasera */
-.hero-image-back {
-    transform: rotateY(180deg);
-}
-
-.hero-image-back img {
-    width: 100%;
-    border-radius: 50%;
-}
-
 /* ======================================================
    PROJECT ICONS
    Nuevo código - no reemplaza reglas existentes
@@ -3029,3 +2908,517 @@ h2{
         transition: none;
     }
 }
+
+
+/* =====================================================
+   HERO EDITORIAL — MINIMAL PROFESSIONAL PORTFOLIO
+===================================================== */
+
+#home.hero-editorial {
+    --editorial-accent: #67c7f5;
+    --editorial-text: #f3f5f7;
+    --editorial-muted: #a2adbd;
+    --editorial-line: rgba(255, 255, 255, 0.13);
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 690px;
+    padding: clamp(100px, 12vh, 145px) 0 90px;
+
+    background:
+        radial-gradient(
+            ellipse at 79% 46%,
+            rgba(42, 94, 137, 0.15),
+            transparent 38%
+        ),
+        #0b1220;
+}
+
+/* Fondo discreto, sin competir con el contenido */
+
+#home.hero-editorial::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.018) 100%
+        );
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Composición de dos columnas */
+
+#home.hero-editorial .hero-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+    align-items: center;
+    gap: clamp(30px, 5vw, 76px);
+
+    width: min(1160px, calc(100% - 64px));
+    margin: 0 auto;
+}
+
+/* Texto */
+
+#home.hero-editorial .hero-text {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+    max-width: 640px;
+}
+
+#home.hero-editorial .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin: 0 0 28px;
+
+    color: #aebbd0;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.69rem;
+    letter-spacing: 0.16em;
+}
+
+#home.hero-editorial .hero-eyebrow-line {
+    width: 28px;
+    height: 1px;
+    flex: 0 0 28px;
+    background: var(--editorial-accent);
+}
+
+/* Tipografía protagonista */
+
+#home.hero-editorial .hero-text h1 {
+    margin: 0;
+
+    color: var(--editorial-text);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(3.8rem, 6.2vw, 6rem);
+    font-weight: 600;
+    line-height: 0.99;
+    letter-spacing: -0.075em;
+    text-shadow: none;
+}
+
+#home.hero-editorial .hero-name {
+    display: block;
+    color: var(--editorial-text);
+}
+
+#home.hero-editorial .hero-name-last {
+    color: #8593a7;
+}
+
+/* Especialidad */
+
+#home.hero-editorial .subtitle {
+    margin: 24px 0 0;
+
+    color: var(--editorial-accent);
+    font-family: "JetBrains Mono", monospace;
+    font-size: clamp(0.78rem, 1.15vw, 0.94rem);
+    line-height: 1.8;
+    letter-spacing: -0.025em;
+}
+
+#home.hero-editorial .hero-separator {
+    padding: 0 5px;
+    color: #60738b;
+}
+
+/* Descripción */
+
+#home.hero-editorial .hero-description {
+    max-width: 540px;
+    margin: 22px 0 0;
+
+    color: var(--editorial-muted);
+    font-size: 0.95rem;
+    line-height: 1.9;
+}
+
+/* Botones */
+
+#home.hero-editorial .hero-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 11px;
+
+    margin-top: 30px;
+}
+
+#home.hero-editorial .hero-buttons a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 45px;
+    padding: 11px 15px;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 0.79rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+#home.hero-editorial .hero-buttons a:hover {
+    transform: translateY(-2px);
+}
+
+#home.hero-editorial .hero-buttons .btn-primary {
+    color: #071421;
+    background: var(--editorial-accent);
+    border-color: var(--editorial-accent);
+}
+
+#home.hero-editorial .hero-buttons .btn-primary:hover {
+    background: #a1ddfa;
+    border-color: #a1ddfa;
+}
+
+#home.hero-editorial .hero-buttons .btn-secondary,
+#home.hero-editorial .hero-buttons .btn-cv {
+    color: #e3e8ef;
+    background: transparent;
+    border-color: rgba(186, 202, 220, 0.28);
+}
+
+#home.hero-editorial .hero-buttons .btn-secondary:hover,
+#home.hero-editorial .hero-buttons .btn-cv:hover {
+    color: var(--editorial-accent);
+    border-color: var(--editorial-accent);
+}
+
+/* La barra de descarga del CV sigue funcionando */
+
+#home.hero-editorial .btn-cv {
+    overflow: hidden;
+}
+
+/* Detalles inferiores */
+
+#home.hero-editorial .hero-bottom-details {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-top: 42px;
+
+    color: #7f8da1;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.61rem;
+    letter-spacing: 0.08em;
+}
+
+#home.hero-editorial .hero-detail-marker {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #76cba7;
+}
+
+#home.hero-editorial .hero-detail-divider {
+    color: #45566d;
+}
+
+/* Fotografía editorial */
+
+#home.hero-editorial .hero-image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    padding: 0;
+}
+
+#home.hero-editorial .hero-portrait-stage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: min(100%, 420px);
+    aspect-ratio: 0.82;
+    isolation: isolate;
+}
+
+/* Luz ambiental detrás del retrato */
+
+#home.hero-editorial .hero-portrait-stage::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    inset: 13% 4% 6%;
+
+    background: radial-gradient(
+        ellipse,
+        rgba(91, 149, 194, 0.19),
+        transparent 68%
+    );
+
+    filter: blur(22px);
+}
+
+/* Marco geométrico */
+
+#home.hero-editorial .hero-portrait-orbit {
+    position: absolute;
+    z-index: -1;
+    inset: 7% 2% 5%;
+
+    border: 1px solid rgba(133, 177, 211, 0.23);
+    border-radius: 48% 48% 3px 3px;
+    transform: rotate(4deg);
+}
+
+/* Contenedor del efecto flip */
+
+#home.hero-editorial .hero-image-flip {
+    position: relative;
+    z-index: 1;
+
+    width: min(79%, 325px);
+    max-width: 325px;
+    aspect-ratio: 0.76;
+
+    perspective: 1000px;
+}
+
+#home.hero-editorial .hero-image-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+#home.hero-editorial .hero-image-flip:hover .hero-image-inner {
+    transform: rotateY(180deg);
+}
+
+#home.hero-editorial .hero-image-front,
+#home.hero-editorial .hero-image-back {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    background: #141d2a;
+    border: 1px solid rgba(177, 197, 218, 0.28);
+    border-radius: 46% 46% 3px 3px;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+#home.hero-editorial .hero-image-front img,
+#home.hero-editorial .hero-image-back img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center top;
+
+    border: 0;
+    border-radius: inherit;
+    box-shadow: none;
+
+    filter: grayscale(100%) contrast(1.04);
+}
+
+#home.hero-editorial .hero-image-back {
+    transform: rotateY(180deg);
+}
+
+/* Índice sobre la fotografía */
+
+#home.hero-editorial .hero-portrait-index {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 10%;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    background: rgba(11, 18, 32, 0.88);
+
+    color: #a9b7c9;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+}
+
+#home.hero-editorial .hero-portrait-index > span:first-child {
+    color: var(--editorial-accent);
+}
+
+#home.hero-editorial .hero-index-line {
+    width: 20px;
+    height: 1px;
+    background: #687a90;
+}
+
+/* Pie de fotografía */
+
+#home.hero-editorial .hero-image-caption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    margin: 18px 0 0;
+
+    color: #8292a8;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.59rem;
+    letter-spacing: 0.09em;
+}
+
+#home.hero-editorial .hero-image-caption > span {
+    width: 20px;
+    height: 1px;
+    background: var(--editorial-accent);
+}
+
+/* Tabletas */
+
+@media (max-width: 900px) {
+    #home.hero-editorial {
+        min-height: auto;
+        padding: 105px 0 75px;
+    }
+
+    #home.hero-editorial .hero-content {
+        grid-template-columns: minmax(0, 1.1fr) minmax(250px, 0.9fr);
+        gap: 25px;
+        width: calc(100% - 48px);
+    }
+
+    #home.hero-editorial .hero-text h1 {
+        font-size: clamp(3.2rem, 6.4vw, 4.5rem);
+    }
+
+    #home.hero-editorial .hero-image-flip {
+        width: 83%;
+    }
+}
+
+/* Móviles */
+
+@media (max-width: 680px) {
+    #home.hero-editorial {
+        padding: 75px 0 65px;
+    }
+
+    #home.hero-editorial .hero-content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
+        width: calc(100% - 40px);
+    }
+
+    #home.hero-editorial .hero-image {
+        grid-row: 1;
+    }
+
+    #home.hero-editorial .hero-text {
+        grid-row: 2;
+        text-align: left;
+    }
+
+    #home.hero-editorial .hero-portrait-stage {
+        width: min(100%, 335px);
+    }
+
+    #home.hero-editorial .hero-image-flip {
+        width: 72%;
+        max-width: 260px;
+    }
+
+    #home.hero-editorial .hero-text h1 {
+        font-size: clamp(3.3rem, 12vw, 4.8rem);
+    }
+
+    #home.hero-editorial .hero-eyebrow {
+        margin-bottom: 22px;
+        font-size: 0.62rem;
+    }
+
+    #home.hero-editorial .hero-description {
+        font-size: 0.92rem;
+    }
+
+    #home.hero-editorial .hero-bottom-details {
+        margin-top: 32px;
+    }
+
+    #home.hero-editorial .hero-buttons {
+        align-items: stretch;
+    }
+
+    #home.hero-editorial .hero-buttons a {
+        flex: 0 1 auto;
+    }
+}
+
+/* Móviles estrechos */
+
+@media (max-width: 380px) {
+    #home.hero-editorial .hero-content {
+        width: calc(100% - 32px);
+    }
+
+    #home.hero-editorial .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    #home.hero-editorial .hero-buttons a {
+        padding: 10px 11px;
+        font-size: 0.73rem;
+    }
+}
+
+/* Accesibilidad: movimiento reducido */
+
+@media (prefers-reduced-motion: reduce) {
+    #home.hero-editorial .hero-image-inner,
+    #home.hero-editorial .hero-buttons a {
+        transition: none;
+    }
+}
+
