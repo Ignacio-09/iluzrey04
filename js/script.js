@@ -476,55 +476,79 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-const terminalLines = [
-"> loading legacy systems knowledge...",
-"> bridging COBOL with modern engineering and AI"
-];
+/* ===========================================
+   ANIMACIÓN DE ESCRITURA — TERMINAL
+=========================================== */
 
-const terminalElements = document.querySelectorAll(".terminal-line");
+const futureTerminal = document.querySelector(".future-terminal");
 
-function typeLine(text, element, speed = 40){
+if (futureTerminal) {
+    const terminalLines = [
+        "ANALIZAR REQUERIMIENTOS",
+        "DETECTAR CAUSA E IMPACTO",
+        "IMPLEMENTAR Y EJECUTAR PRUEBAS",
+        "VERIFICAR RESULTADOS Y REGRESIONES"
+    ];
 
-    let i = 0;
+    const terminalRows = futureTerminal.querySelectorAll(".terminal-line");
+    let terminalAnimationStarted = false;
 
-    function typing(){
+    function typeTerminalLine(element, text, speed = 35) {
+        return new Promise((resolve) => {
+            let index = 0;
 
-        if(i < text.length){
+            element.textContent = "";
 
-            element.textContent += text.charAt(i);
-            i++;
+            function typeNextCharacter() {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeNextCharacter, speed);
+                } else {
+                    resolve();
+                }
+            }
 
-            setTimeout(typing, speed);
-
-        }
-
+            typeNextCharacter();
+        });
     }
 
-    typing();
+    async function animateTerminal() {
+        for (let i = 0; i < terminalLines.length; i++) {
+            const row = terminalRows[i];
 
-}
+            if (!row) continue;
 
-const terminalObserver = new IntersectionObserver(entries => {
+            // Anima únicamente el texto, sin borrar el número,
+            // el símbolo de consola ni la etiqueta del resultado.
+            const textElement = row.querySelector(
+                "span:nth-child(3)"
+            );
 
-    entries.forEach(entry => {
+            if (!textElement) continue;
 
-        if(entry.isIntersecting){
-
-            typeLine(terminalLines[0], terminalElements[0]);
-
-            setTimeout(()=>{
-                typeLine(terminalLines[1], terminalElements[1]);
-            },1200);
-
-            terminalObserver.disconnect();
-
+            await typeTerminalLine(textElement, terminalLines[i], 65);
         }
+    }
 
-    });
+    const terminalObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (
+                    entry.isIntersecting &&
+                    !terminalAnimationStarted
+                ) {
+                    terminalAnimationStarted = true;
+                    animateTerminal();
+                    terminalObserver.disconnect();
+                }
+            });
+        },
+        { threshold: 0.3 }
+    );
 
-},{threshold:0.4});
-
-terminalObserver.observe(document.querySelector(".future-terminal"));
+    terminalObserver.observe(futureTerminal);
+}
 
 // ========================================
 // Año automático en footer

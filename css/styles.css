@@ -2642,137 +2642,6 @@ line-height:1.6;
    CONTACT TERMINAL
 ========================================== */
 
-.contact-terminal{
-
-margin-top:70px;
-
-max-width:650px;
-
-margin-left:auto;
-margin-right:auto;
-
-background:#0b0b0b;
-
-border-radius:10px;
-
-border:1px solid rgba(255,255,255,0.08);
-
-overflow:hidden;
-
-font-family:monospace;
-
-box-shadow:0 15px 40px rgba(0,0,0,0.4);
-
-}
-
-
-/* HEADER */
-
-.terminal-header{
-
-display:flex;
-align-items:center;
-
-gap:8px;
-
-padding:10px 15px;
-
-background:#111;
-
-border-bottom:1px solid rgba(255,255,255,0.05);
-
-}
-
-.terminal-dot{
-
-width:10px;
-height:10px;
-
-border-radius:50%;
-
-display:inline-block;
-
-}
-
-.red{
-background:#ff5f56;
-}
-
-.yellow{
-background:#ffbd2e;
-}
-
-.green{
-background:#27c93f;
-}
-
-.terminal-title{
-
-margin-left:10px;
-
-font-size:0.8rem;
-
-opacity:0.6;
-
-}
-
-
-/* BODY */
-
-.terminal-body{
-
-padding:20px;
-
-font-size:0.9rem;
-
-line-height:1.6;
-
-color:#eaeaea;
-
-}
-
-
-/* PROMPT */
-
-.terminal-prompt{
-
-color:#00ffb4;
-
-margin-right:8px;
-
-}
-
-
-/* TEXT */
-
-.terminal-line-c{
-
-margin-bottom:6px;
-
-white-space:pre;
-
-}
-
-
-/* CURSOR */
-
-.typing::after{
-
-content:"|";
-
-margin-left:5px;
-
-animation:blink 1s infinite;
-
-}
-
-@keyframes blink{
-
-0%{opacity:1}
-50%{opacity:0}
-100%{opacity:1}
-
-}
 
 .email-text{
 color:#00ffb4;
@@ -3947,3 +3816,560 @@ h2{
     }
 }
 
+
+/* ==========================================
+   ENGINEERING MINDSET — DISEÑO EDITORIAL
+========================================== */
+
+#engineering-mindset {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 24px;
+    background:
+        radial-gradient(
+            ellipse at 85% 15%,
+            rgba(0, 173, 181, 0.07),
+            transparent 38%
+        ),
+        #0f172a;
+}
+
+#engineering-mindset::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(1100px, 90%);
+    height: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 173, 181, 0.45),
+        transparent
+    );
+}
+
+#engineering-mindset .mindset-header {
+    max-width: 760px;
+    margin: 0 auto 64px;
+    text-align: center;
+}
+
+#engineering-mindset .mindset-eyebrow {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: #67e8f9;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+}
+
+#engineering-mindset .mindset-header h2 {
+    margin: 0 0 20px;
+    color: #f1f5f9;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+}
+
+#engineering-mindset .mindset-header > p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #a6b4c5;
+    font-size: 1.02rem;
+    line-height: 1.9;
+}
+
+/* Distribución principal */
+
+#engineering-mindset .mindset-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+    gap: clamp(32px, 5vw, 76px);
+    max-width: 1120px;
+    margin: 0 auto 88px;
+}
+
+#engineering-mindset .mindset-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: none;
+    min-width: 0;
+}
+
+/* Tarjetas de principios */
+
+#engineering-mindset .mindset-card {
+    position: relative;
+    overflow: hidden;
+    padding: 26px 26px 24px;
+    background: linear-gradient(
+        135deg,
+        rgba(30, 41, 59, 0.94),
+        rgba(15, 23, 42, 0.96)
+    );
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-left: 3px solid rgba(0, 173, 181, 0.75);
+    border-radius: 10px;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#engineering-mindset .mindset-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 173, 181, 0.45);
+    border-left-color: #22d3ee;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+}
+
+#engineering-mindset .mindset-number {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    color: rgba(103, 232, 249, 0.12);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+#engineering-mindset .mindset-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    margin-bottom: 14px;
+}
+
+#engineering-mindset .mindset-symbol {
+    display: grid;
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    color: #67e8f9;
+    background: rgba(0, 173, 181, 0.09);
+    border: 1px solid rgba(0, 173, 181, 0.3);
+    border-radius: 8px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+}
+
+#engineering-mindset .mindset-card h3 {
+    margin: 0;
+    padding-right: 18px;
+    color: #e2e8f0;
+    font-size: 1.08rem;
+    line-height: 1.45;
+}
+
+#engineering-mindset .mindset-card > p {
+    margin: 0 0 18px;
+    color: #a6b4c5;
+    font-size: 0.91rem;
+    line-height: 1.8;
+}
+
+#engineering-mindset .mindset-tag {
+    display: inline-block;
+    color: #67e8f9;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+}
+
+/* Ilustración y cita */
+
+#engineering-mindset .mindset-illustration {
+    min-width: 0;
+}
+
+#engineering-mindset .mindset-image-frame {
+    position: relative;
+    padding: 14px;
+    background: rgba(15, 23, 42, 0.72);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+}
+
+#engineering-mindset .mindset-image-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 14px;
+    color: #94a3b8;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+}
+
+#engineering-mindset .mindset-status-dot {
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    background: #22d3ee;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.55);
+}
+
+#engineering-mindset .mindset-image-frame img {
+    display: block;
+    width: 100%;
+    max-height: 410px;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+}
+
+#engineering-mindset .mindset-image-frame:hover img {
+    transform: scale(1.025);
+}
+
+#engineering-mindset .mindset-image-caption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 14px;
+    padding-top: 13px;
+    border-top: 1px solid rgba(148, 163, 184, 0.16);
+    color: #94a3b8;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+}
+
+#engineering-mindset .mindset-image-caption span:first-child {
+    color: #67e8f9;
+}
+
+#engineering-mindset .mindset-quote {
+    position: relative;
+    margin: 24px 0 0;
+    padding: 22px 22px 22px 26px;
+    color: #cbd5e1;
+    background: rgba(30, 41, 59, 0.45);
+    border-left: 2px solid #00adb5;
+    border-radius: 0 8px 8px 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+#engineering-mindset .mindset-quote-mark {
+    display: block;
+    margin-bottom: -8px;
+    color: #22d3ee;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Bloque de proceso */
+
+#engineering-mindset .engineering-future {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: clamp(24px, 4vw, 42px);
+    background: linear-gradient(
+        145deg,
+        rgba(17, 30, 43, 0.96),
+        rgba(15, 23, 42, 0.98)
+    );
+    border: 1px solid rgba(0, 173, 181, 0.24);
+    border-radius: 14px;
+}
+
+#engineering-mindset .future-heading {
+    margin-bottom: 28px;
+}
+
+#engineering-mindset .future-heading h3 {
+    margin: 0 0 10px;
+    color: #f1f5f9;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    letter-spacing: -0.025em;
+}
+
+#engineering-mindset .future-heading > p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.94rem;
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   TERMINAL — PROPORCIONES Y ALINEACIÓN
+========================================== */
+
+/* ==========================================
+   TERMINAL — FORMATO HORIZONTAL COMPACTO
+========================================== */
+
+#engineering-mindset .future-terminal {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    background: #090f18;
+    border: 1px solid #263544;
+    border-radius: 9px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
+}
+
+/* Barra de título */
+#engineering-mindset .terminal-topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 40px;
+    padding: 9px 15px;
+    background: #151f2b;
+    border-bottom: 1px solid #263544;
+    color: #94a3b8;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+}
+
+#engineering-mindset .terminal-dots {
+    display: flex;
+    flex-shrink: 0;
+    gap: 5px;
+}
+
+#engineering-mindset .terminal-dots span {
+    width: 7px;
+    height: 7px;
+    background: #475569;
+    border-radius: 50%;
+}
+
+#engineering-mindset .terminal-dots span:nth-child(2) {
+    background: #22d3ee;
+}
+
+#engineering-mindset .terminal-status {
+    margin-left: auto;
+    color: #67e8f9;
+    font-size: 0.64rem;
+    white-space: nowrap;
+}
+
+
+/* Cuerpo de la terminal */
+#engineering-mindset .terminal-body {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    padding: 10px;
+}
+
+#engineering-mindset .terminal-line {
+    grid-template-columns: 16px 8px minmax(0, 1fr);
+    column-gap: 4px;
+    padding: 9px;
+    font-size: 0.60rem;
+    line-height: 1.5;
+}
+
+#engineering-mindset .terminal-index {
+    color: #64748b;
+    font-size: 0.63rem;
+    text-align: right;
+}
+
+#engineering-mindset .terminal-prompt {
+    color: #22d3ee;
+    font-weight: 700;
+}
+
+#engineering-mindset .terminal-result {
+    grid-column: 3;
+    margin-top: 3px;
+    color: #67e8f9;
+    font-size: 0.59rem;
+    line-height: 1.4;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+/* Tabletas y pantallas medianas */
+@media (max-width: 700px) {
+    #engineering-mindset .terminal-body {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 9px;
+    }
+
+    #engineering-mindset .terminal-line {
+        grid-template-columns: 20px 9px minmax(0, 1fr) auto;
+        align-items: center;
+        min-height: 0;
+        padding: 10px 12px;
+        font-size: 0.67rem;
+    }
+
+    #engineering-mindset .terminal-result {
+        grid-column: auto;
+        margin-top: 0;
+        white-space: nowrap;
+    }
+}
+
+/* Móviles estrechos */
+@media (max-width: 420px) {
+    #engineering-mindset .terminal-line {
+        grid-template-columns: 18px 8px minmax(0, 1fr);
+        align-items: start;
+        column-gap: 5px;
+        padding: 9px;
+        font-size: 0.64rem;
+        line-height: 1.6;
+    }
+
+    #engineering-mindset .terminal-result {
+        grid-column: 3;
+        margin-top: 3px;
+        white-space: normal;
+    }
+}
+
+
+/* Flujo del proceso */
+
+#engineering-mindset .cobol-flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+#engineering-mindset .flow-label {
+    flex-basis: 100%;
+    color: #64748b;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+#engineering-mindset .flow-step {
+    padding: 9px 13px;
+    color: #a5f3fc;
+    background: rgba(0, 173, 181, 0.07);
+    border: 1px solid rgba(0, 173, 181, 0.28);
+    border-radius: 5px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+#engineering-mindset .flow-arrow {
+    color: #22d3ee;
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    #engineering-mindset {
+        padding: 76px 20px;
+    }
+
+    #engineering-mindset .mindset-layout {
+        grid-template-columns: 1fr;
+        max-width: 680px;
+        gap: 36px;
+        margin-bottom: 64px;
+    }
+
+    #engineering-mindset .mindset-illustration {
+        max-width: 560px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    #engineering-mindset .mindset-image-frame img {
+        max-height: 380px;
+    }
+}
+
+@media (max-width: 560px) {
+    #engineering-mindset {
+        padding: 64px 16px;
+    }
+
+    #engineering-mindset .mindset-header {
+        margin-bottom: 40px;
+    }
+
+    #engineering-mindset .mindset-card {
+        padding: 23px 19px;
+    }
+
+    #engineering-mindset .mindset-card h3 {
+        font-size: 1rem;
+    }
+
+    #engineering-mindset .mindset-image-caption {
+        flex-direction: column;
+    }
+
+    #engineering-mindset .engineering-future {
+        padding: 22px 14px;
+    }
+
+    #engineering-mindset .terminal-line {
+        grid-template-columns: 18px 10px minmax(0, 1fr);
+        gap: 7px;
+        padding: 11px 10px;
+        font-size: 0.65rem;
+        overflow-wrap: anywhere;
+    }
+
+    #engineering-mindset .terminal-result {
+        grid-column: 3;
+        white-space: normal;
+    }
+
+    #engineering-mindset .terminal-topbar {
+        gap: 9px;
+        font-size: 0.59rem;
+    }
+
+    #engineering-mindset .cobol-flow {
+        gap: 8px;
+    }
+
+    #engineering-mindset .flow-step {
+        padding: 8px;
+        font-size: 0.62rem;
+    }
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+    #engineering-mindset .mindset-card,
+    #engineering-mindset .mindset-image-frame img {
+        transition: none;
+    }
+
+    #engineering-mindset .mindset-card:hover,
+    #engineering-mindset .mindset-image-frame:hover img {
+        transform: none;
+    }
+}
