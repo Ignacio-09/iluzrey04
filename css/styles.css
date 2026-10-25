@@ -205,156 +205,328 @@ body {
 
 
 
+
 /* ===========================================
-   LEGACY SECTION
+   LEGACY / MAINFRAME — EDITORIAL SECTION
 =========================================== */
-/* ===========================
-   Legacy Section
-=========================== */
 
-.legacy{
-    padding: 100px 10%;
+.legacy {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 8%;
+    isolation: isolate;
 }
 
-.legacy-content{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:center;
+/* Resplandor ambiental sutil */
+
+.legacy::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 10%;
+    left: 8%;
+
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+
+    background: rgba(56, 189, 248, 0.045);
+    filter: blur(85px);
+    pointer-events: none;
 }
 
-/* Imagen */
+.legacy-content {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(36px, 6vw, 76px);
+    align-items: center;
 
-.legacy-image{
-    display:flex;
-    justify-content:center;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-.legacy-image img{
-    max-width:320px;
-    width:100%;
+/* ===========================================
+   DINOSAUR ILLUSTRATION
+=========================================== */
+
+.legacy-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    position: relative;
+}
+
+.legacy-image img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+
+    filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.22));
+
     animation: floatDino 4s ease-in-out infinite;
-    transition: transform .3s;
+    transition: filter 0.3s ease;
 }
 
-.legacy-image img:hover{
-    transform:scale(1.08);
+.legacy-image img:hover {
+    filter:
+        drop-shadow(0 20px 32px rgba(0, 0, 0, 0.28))
+        drop-shadow(0 0 12px rgba(56, 189, 248, 0.10));
 }
 
-/* Animación flotante */
+/* La animación y el hover ya no compiten por transform */
 
-@keyframes floatDino{
+@keyframes floatDino {
+    0%, 100% {
+        transform: translateY(0);
+    }
 
-    0%{transform:translateY(0px);}
-    50%{transform:translateY(-12px);}
-    100%{transform:translateY(0px);}
-
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
-/* Texto */
+/* ===========================================
+   EDITORIAL TEXT
+=========================================== */
 
-.legacy-text{
-    max-width:520px;
+.legacy-text {
+    width: 100%;
+    max-width: 540px;
+    min-width: 0;
 }
 
-.legacy-text h2{
-    font-size:2rem;
-    margin-bottom:20px;
+.legacy-text h2 {
+    margin: 0 0 24px;
+
+    color: #f1f5f9;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
 }
 
-.legacy-text p{
-    line-height:1.7;
-    margin-bottom:16px;
-    color:#b8b8b8;
+.legacy-text p {
+    margin: 0 0 16px;
+
+    color: #cbd5e1;
+    font-size: 0.96rem;
+    line-height: 1.8;
 }
 
-/* ===========================
-   TERMINAL EFFECT LEGACY SECTION
-=========================== */
+/* ===========================================
+   TERMINAL WINDOW
+=========================================== */
 
-.legacy-terminal{
+.legacy-terminal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-    background:#0f1720;
-    border:1px solid #1f2a35;
-    border-radius:8px;
-    padding:16px;
-    margin:25px 0;
+    margin: 28px 0;
+    padding: 42px 18px 19px;
 
-    font-family:monospace;
-    font-size:.9rem;
-    color:#00ff9c;
+    background: rgba(2, 6, 23, 0.78);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 12px;
 
-    display:flex;
-    flex-direction:column;
-    gap:6px;
+    box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    line-height: 1.65;
+    color: #86efac;
+
+    overflow: hidden;
 }
 
-/* typing effect */
+/* Barra superior da terminal */
 
-.legacy-terminal span{
-    opacity:.8;
+.legacy-terminal::before {
+    content: "●  ●  ●     MAINFRAME SESSION";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    padding: 10px 14px;
+
+    background: rgba(15, 23, 42, 0.92);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+
+    color: #64748b;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
 }
 
-.legacy-terminal span{
-    display:block;
-    font-family: monospace;
-    white-space: nowrap;
+.legacy-terminal span {
+    display: block;
+    min-width: 0;
+
+    color: #86efac;
+    opacity: 0.9;
+
+    font-family: 'JetBrains Mono', monospace;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
-.cursor{
-    display:inline-block;
-    width:8px;
-    margin-left:3px;
-    background:#00ff9c;
-    animation: blink 1s infinite;
+.legacy-terminal span:last-child {
+    color: #38bdf8;
 }
 
-@keyframes blink{
+/* Cursor existente, si se utiliza en el HTML */
 
-    0%{opacity:1;}
-    50%{opacity:0;}
-    100%{opacity:1;}
+.legacy .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1em;
+    margin-left: 3px;
 
+    background: #86efac;
+    vertical-align: -2px;
+
+    animation: legacyBlink 1s steps(2, start) infinite;
 }
 
-/* ===========================
-   TECH TIMELINE
-=========================== */
-
-.legacy-tech{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:20px;
+@keyframes legacyBlink {
+    to {
+        visibility: hidden;
+    }
 }
 
-.legacy-tech span{
+/* ===========================================
+   TECHNOLOGY TAGS
+=========================================== */
 
-    padding:6px 12px;
-    font-size:.8rem;
+.legacy-tech {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px;
 
-    border:1px solid #2c3b4b;
-    border-radius:20px;
-
-    background:#111821;
-    color:#9fb3c8;
+    margin: 0 0 25px;
 }
 
-/* ===========================
-   Highlight phrase
-=========================== */
+.legacy-tech span {
+    display: inline-flex;
+    align-items: center;
 
-.legacy-highlight{
+    padding: 7px 12px;
 
-    margin-top:10px;
-    font-style:italic;
-    font-weight:500;
+    background: rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 7px;
 
-    border-left:3px solid #00adb5;
-    padding-left:14px;
+    color: #cbd5e1;
+    font-size: 0.77rem;
+    line-height: 1.4;
 
-    color:#ffffff;
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease;
 }
+
+.legacy-tech span:hover {
+    color: #7dd3fc;
+    background: rgba(56, 189, 248, 0.06);
+    border-color: rgba(56, 189, 248, 0.35);
+}
+
+/* ===========================================
+   DINOSAUR PUNCHLINE
+=========================================== */
+
+.legacy-text .legacy-highlight {
+    margin: 8px 0 0;
+    padding: 12px 0 12px 16px;
+
+    border-left: 2px solid #38bdf8;
+
+    color: #e2e8f0;
+    font-size: 0.91rem;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media (max-width: 768px) {
+    .legacy {
+        padding: 75px 20px;
+    }
+
+    .legacy-content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 35px;
+    }
+
+    .legacy-image img {
+        max-width: 250px;
+    }
+
+    .legacy-text {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .legacy-text h2 {
+        font-size: clamp(1.8rem, 6vw, 2.3rem);
+    }
+
+    .legacy-terminal {
+        padding: 42px 14px 16px;
+        font-size: 0.72rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .legacy {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .legacy-tech {
+        gap: 7px;
+    }
+
+    .legacy-tech span {
+        padding: 7px 9px;
+        font-size: 0.73rem;
+    }
+
+    .legacy-terminal {
+        font-size: 0.68rem;
+    }
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+    .legacy-image img {
+        animation: none;
+        transition: none;
+    }
+
+    .legacy .cursor {
+        animation: none;
+    }
+
+    .legacy-tech span {
+        transition: none;
+    }
+}
+
 /* ===========================================
    EXPERIENCIA TIMELINE - SECTION
 =========================================== */
