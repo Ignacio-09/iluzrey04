@@ -21,7 +21,11 @@
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- JS externo -->
+
     <script defer src="js/script.js"></script>
+    <script src="js/recursos-data.js"></script>
+
+
     <title>Ignacio Luz Reyes | Software Developer</title>
 </head>
 
@@ -120,9 +124,27 @@
                     </div>
                 </div>
 
-
                 <!-- Imagen cinematográfica del Hero -->
                 <div class="hero-visual">
+
+                    <a href="#recursos" class="hero-recursos-chip" aria-label="Explorar recursos técnicos">
+
+                        <span class="hero-recursos-chip-arrow" aria-hidden="true">↖</span>
+                        <span class="hero-recursos-chip-text">Recursos</span>
+                        <span class="hero-recursos-chip-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21z" />
+                                <path d="M4 5.5v13A2.5 2.5 0 0 1 6.5 16H20" />
+                                <path d="M8 7h8" />
+                                <path d="M8 10h6" />
+                            </svg>
+                        </span>
+
+
+
+
+                    </a>
 
                     <div class="hero-cinematic-image">
                         <img src="img/hero-cinematic.png"
@@ -156,12 +178,8 @@
                     </div>
 
                 </div>
-
-
             </div>
         </section>
-
-
 
         <!-- ========================================
      SOBRE MÍ
@@ -374,6 +392,102 @@
             </div>
 
         </section>
+
+        <!-- ========================================
+     RECURSOS — BIBLIOTECA TÉCNICA
+======================================== -->
+        <section id="recursos">
+            <div class="recursos-container">
+
+                <header class="recursos-header reveal">
+                    <span class="recursos-eyebrow">TECHNICAL KNOWLEDGE BASE</span>
+
+                    <h2>Recursos</h2>
+
+                    <p>
+                        Apuntes, ejemplos y soluciones técnicas para consultar,
+                        comprender y reutilizar conocimientos de programación.
+                    </p>
+                </header>
+
+                <!-- Buscador -->
+                <div class="recursos-search reveal">
+                    <label for="recursos-search-input">
+                        Buscar recursos
+                    </label>
+
+                    <input type="search" id="recursos-search-input" placeholder="Ej. IF, tablas, DMSII, cursores..."
+                        autocomplete="off">
+
+                    <span id="recursos-results-count" aria-live="polite"></span>
+                </div>
+
+                <!-- Tecnologías -->
+                <div id="recursos-technologies" class="recursos-technologies reveal"
+                    aria-label="Tecnologías disponibles"></div>
+
+                <!-- Temas -->
+                <div class="recursos-content">
+
+                    <div class="recursos-content-header">
+                        <div>
+                            <span class="recursos-section-label">EXPLORAR</span>
+                            <h3 id="recursos-selected-title">Selecciona una tecnología</h3>
+                        </div>
+
+                        <span id="recursos-topic-count"></span>
+                    </div>
+
+                    <div id="recursos-topics" class="recursos-topics" aria-live="polite">
+                        <p class="recursos-empty">
+                            Selecciona una tecnología para consultar sus recursos.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Ventana de detalle -->
+            <div id="recursos-modal" class="recursos-modal" aria-hidden="true" inert>
+                <div class="recursos-modal-backdrop" data-recursos-close></div>
+
+                <article class="recursos-modal-dialog" role="dialog" aria-modal="true"
+                    aria-labelledby="recursos-modal-title" tabindex="-1">
+                    <header class="recursos-modal-header">
+                        <div>
+                            <span id="recursos-modal-technology"></span>
+                            <h3 id="recursos-modal-title">Título del recurso</h3>
+                        </div>
+
+                        <button type="button" class="recursos-modal-close" data-recursos-close
+                            aria-label="Cerrar recurso">
+                            &times;
+                        </button>
+                    </header>
+
+                    <div class="recursos-modal-body">
+                        <p id="recursos-modal-description"></p>
+
+                        <div id="recursos-modal-notes"></div>
+
+                        <div class="recursos-code-header">
+                            <span id="recursos-modal-dialect"></span>
+
+                            <button type="button" id="recursos-copy-code">
+                                Copiar código
+                            </button>
+                        </div>
+
+                        <pre class="recursos-code"><code
+                    id="recursos-modal-code"
+                ></code></pre>
+
+                        <p id="recursos-copy-status" class="recursos-copy-status" aria-live="polite"></p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
         <!-- ========================================
         Experiencia Profesional
         ======================================== -->

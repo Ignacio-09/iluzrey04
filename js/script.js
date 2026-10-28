@@ -1,11 +1,11 @@
 
 // Legacy terminal typing animation
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
     const lines = document.querySelectorAll(".legacy-terminal span");
     let lineIndex = 0;
-    function typeLine(){
-        if(lineIndex >= lines.length) return;
+    function typeLine() {
+        if (lineIndex >= lines.length) return;
         const line = lines[lineIndex];
         const text = line.textContent;
         line.textContent = "";
@@ -13,15 +13,15 @@ document.addEventListener("DOMContentLoaded", function(){
         const cursor = document.createElement("span");
         cursor.classList.add("cursor");
         line.appendChild(cursor);
-        function typeChar(){
-            if(charIndex < text.length){
+        function typeChar() {
+            if (charIndex < text.length) {
                 line.insertBefore(
                     document.createTextNode(text.charAt(charIndex)),
                     cursor
                 );
                 charIndex++;
                 setTimeout(typeChar, 600);
-            }else{
+            } else {
                 cursor.remove();
                 lineIndex++;
                 setTimeout(typeLine, 600);
@@ -286,7 +286,7 @@ const timelineObserver = new IntersectionObserver(entries => {
 
     entries.forEach(entry => {
 
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
 
             entry.target.classList.add("visible");
 
@@ -346,35 +346,35 @@ const counter = document.getElementById("exp-years");
 
 let started = false;
 
-function animateCounter(){
+function animateCounter() {
 
-    if(started) return;
+    if (started) return;
 
     started = true;
 
     let value = 0;
     const target = 3; // años aproximados
 
-    const interval = setInterval(()=>{
+    const interval = setInterval(() => {
 
         value++;
 
         counter.textContent = value;
 
-        if(value >= target){
+        if (value >= target) {
 
             clearInterval(interval);
 
         }
 
-    },300);
+    }, 300);
 }
 
 const counterObserver = new IntersectionObserver(entries => {
 
     entries.forEach(entry => {
 
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
 
             animateCounter();
 
@@ -382,7 +382,7 @@ const counterObserver = new IntersectionObserver(entries => {
 
     });
 
-},{threshold:0.6});
+}, { threshold: 0.6 });
 
 counterObserver.observe(counter);
 
@@ -391,21 +391,21 @@ counterObserver.observe(counter);
 const cobolBackground = document.querySelector(".cobol-background");
 
 const cobolLines = [
-"PERFORM PROCESS-ACCOUNT",
-"MOVE ACCOUNT-ID TO WS-ID",
-"IF BALANCE > ZERO",
-"READ CUSTOMER-FILE",
-"WRITE CLEAN-RECORD",
-"PERFORM VALIDATE-DATA",
-"IF ACCOUNT-ACTIVE",
-"DISPLAY PROCESSING",
-"MOVE WS-TOTAL TO RESULT",
-"END-IF"
+    "PERFORM PROCESS-ACCOUNT",
+    "MOVE ACCOUNT-ID TO WS-ID",
+    "IF BALANCE > ZERO",
+    "READ CUSTOMER-FILE",
+    "WRITE CLEAN-RECORD",
+    "PERFORM VALIDATE-DATA",
+    "IF ACCOUNT-ACTIVE",
+    "DISPLAY PROCESSING",
+    "MOVE WS-TOTAL TO RESULT",
+    "END-IF"
 ];
 
-function generateCobolBackground(){
+function generateCobolBackground() {
 
-    for(let i = 0; i < 120; i++){
+    for (let i = 0; i < 120; i++) {
 
         const span = document.createElement("span");
 
@@ -440,7 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         entries.forEach(entry => {
 
-            if(entry.isIntersecting){
+            if (entry.isIntersecting) {
 
                 skillBars.forEach(bar => {
 
@@ -453,7 +453,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     const counter = setInterval(() => {
 
-                        if(count >= level){
+                        if (count >= level) {
                             clearInterval(counter);
                         } else {
                             count++;
@@ -905,3 +905,417 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 })();
 
+
+/* ===========================================
+   RECURSOS — BIBLIOTECA TÉCNICA
+   Módulo independiente
+=========================================== */
+
+(() => {
+    "use strict";
+
+    const section = document.getElementById("recursos");
+
+    // Si la sección no está presente, no inicializar el módulo.
+    if (!section) return;
+
+    const technologiesContainer =
+        section.querySelector("#recursos-technologies");
+
+    const topicsContainer =
+        section.querySelector("#recursos-topics");
+
+    const searchInput =
+        section.querySelector("#recursos-search-input");
+
+    const resultsCount =
+        section.querySelector("#recursos-results-count");
+
+    const selectedTitle =
+        section.querySelector("#recursos-selected-title");
+
+    const topicCount =
+        section.querySelector("#recursos-topic-count");
+
+    const modal = section.querySelector("#recursos-modal");
+    const modalDialog = modal.querySelector(".recursos-modal-dialog");
+
+    const modalTechnology =
+        section.querySelector("#recursos-modal-technology");
+
+    const modalTitle =
+        section.querySelector("#recursos-modal-title");
+
+    const modalDescription =
+        section.querySelector("#recursos-modal-description");
+
+    const modalNotes =
+        section.querySelector("#recursos-modal-notes");
+
+    const modalDialect =
+        section.querySelector("#recursos-modal-dialect");
+
+    const modalCode =
+        section.querySelector("#recursos-modal-code");
+
+    const copyButton =
+        section.querySelector("#recursos-copy-code");
+
+    const copyStatus =
+        section.querySelector("#recursos-copy-status");
+
+    const closeButtons =
+        section.querySelectorAll("[data-recursos-close]");
+
+    const requiredElements = [
+        technologiesContainer,
+        topicsContainer,
+        searchInput,
+        resultsCount,
+        selectedTitle,
+        topicCount,
+        modal,
+        modalDialog,
+        modalTechnology,
+        modalTitle,
+        modalDescription,
+        modalNotes,
+        modalDialect,
+        modalCode,
+        copyButton,
+        copyStatus
+    ];
+
+    if (requiredElements.some(element => !element)) {
+        console.error(
+            "Recursos: faltan elementos HTML requeridos."
+        );
+        return;
+    }
+
+/* ---------------------------------------
+   DATOS EXTERNOS
+   El catálogo está separado de la lógica.
+--------------------------------------- */
+
+// Verificar que el archivo de datos se haya cargado.
+const data = window.RECURSOS_DATA;
+
+if (!data) {
+    console.error(
+        "Recursos: no se encontró js/recursos-data.js."
+    );
+    return;
+}
+
+// Obtener la lista de tecnologías y los grupos de temas.
+const { technologies, resources: resourceGroups } = data;
+
+// Convertir los grupos en una lista plana para mantener
+// la compatibilidad con las funciones existentes.
+const resources = Object.entries(resourceGroups).flatMap(
+    ([technology, items]) =>
+        items.map(resource => ({
+            ...resource,
+            technology
+        }))
+);
+
+
+    /* ---------------------------------------
+       ESTADO
+    --------------------------------------- */
+
+
+    let selectedTechnology = "COBOL";
+    let activeResource = null;
+    let lastFocusedElement = null;
+
+    /* ---------------------------------------
+       CREAR TARJETAS DE TECNOLOGÍA
+    --------------------------------------- */
+
+    function renderTechnologies() {
+        technologiesContainer.replaceChildren();
+
+        technologies.forEach(technology => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "recursos-technology-card";
+            button.dataset.technology = technology.id;
+
+            const name = document.createElement("span");
+            name.className = "recursos-technology-name";
+            name.textContent = technology.label;
+
+            const description = document.createElement("span");
+            description.className = "recursos-technology-description";
+            description.textContent = technology.description;
+
+            const count = document.createElement("span");
+            count.className = "recursos-technology-count";
+
+            const resourceCount = resources.filter(
+                resource => resource.technology === technology.id
+            ).length;
+
+            count.textContent = `${resourceCount} recursos`;
+
+            button.append(name, description, count);
+
+            button.setAttribute(
+                "aria-pressed",
+                String(technology.id === selectedTechnology)
+            );
+
+            button.addEventListener("click", () => {
+                selectedTechnology = technology.id;
+                searchInput.value = "";
+
+                renderTechnologies();
+                renderTopics();
+            });
+
+            technologiesContainer.appendChild(button);
+        });
+    }
+
+    /* ---------------------------------------
+       CREAR LISTA DE TEMAS
+    --------------------------------------- */
+
+    function renderTopics() {
+        const query = searchInput.value.trim().toLocaleLowerCase();
+
+        const filteredResources = resources.filter(resource => {
+            const matchesTechnology =
+                resource.technology === selectedTechnology;
+
+            const searchableText = [
+                resource.title,
+                resource.description,
+                resource.technology,
+                resource.dialect,
+                ...resource.keywords
+            ].join(" ").toLocaleLowerCase();
+
+            return matchesTechnology && searchableText.includes(query);
+        });
+
+        selectedTitle.textContent = selectedTechnology;
+        topicCount.textContent =
+            `${filteredResources.length} temas`;
+
+        resultsCount.textContent =
+            `${filteredResources.length} resultados`;
+
+        topicsContainer.replaceChildren();
+
+        if (filteredResources.length === 0) {
+            const empty = document.createElement("p");
+            empty.className = "recursos-empty";
+            empty.textContent =
+                "No se encontraron temas. Prueba con otra búsqueda.";
+            topicsContainer.appendChild(empty);
+            return;
+        }
+
+        filteredResources.forEach(resource => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "recursos-topic-card";
+
+            const textContainer = document.createElement("span");
+            textContainer.className = "recursos-topic-text";
+
+            const title = document.createElement("span");
+            title.className = "recursos-topic-title";
+            title.textContent = resource.title;
+
+            const description = document.createElement("span");
+            description.className = "recursos-topic-description";
+            description.textContent = resource.description;
+
+            const arrow = document.createElement("span");
+            arrow.className = "recursos-topic-arrow";
+            arrow.setAttribute("aria-hidden", "true");
+            arrow.textContent = "↗";
+
+            textContainer.append(title, description);
+            button.append(textContainer, arrow);
+
+            button.addEventListener("click", () => {
+                openResource(resource, button);
+            });
+
+            topicsContainer.appendChild(button);
+        });
+    }
+
+    /* ---------------------------------------
+       ABRIR VENTANA DE DETALLE
+    --------------------------------------- */
+
+    function openResource(resource, trigger) {
+        activeResource = resource;
+        lastFocusedElement = trigger;
+
+        modalTechnology.textContent = resource.technology;
+        modalTitle.textContent = resource.title;
+        modalDescription.textContent = resource.description;
+        modalDialect.textContent = resource.dialect;
+        modalCode.textContent = resource.code;
+
+        modalNotes.replaceChildren();
+
+        if (resource.notes.length > 0) {
+            const heading = document.createElement("h4");
+            heading.textContent = "Notas importantes";
+
+            const list = document.createElement("ul");
+
+            resource.notes.forEach(noteText => {
+                const item = document.createElement("li");
+                item.textContent = noteText;
+                list.appendChild(item);
+            });
+
+            modalNotes.append(heading, list);
+        }
+
+        copyStatus.textContent = "";
+        copyButton.disabled = false;
+
+        modal.inert = false;
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+
+        document.body.classList.add("recursos-modal-open");
+
+        modalDialog.focus();
+    }
+
+    /* ---------------------------------------
+       CERRAR VENTANA
+    --------------------------------------- */
+
+    function closeResource() {
+        if (!modal.classList.contains("is-open")) return;
+
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        modal.inert = true;
+
+        document.body.classList.remove("recursos-modal-open");
+
+        if (lastFocusedElement) {
+            lastFocusedElement.focus();
+        }
+
+        activeResource = null;
+    }
+
+    closeButtons.forEach(button => {
+        button.addEventListener("click", closeResource);
+    });
+
+    document.addEventListener("keydown", event => {
+        if (!modal.classList.contains("is-open")) return;
+
+        if (event.key === "Escape") {
+            closeResource();
+        }
+
+        // Mantener el foco dentro de la ventana modal.
+        if (event.key === "Tab") {
+            const focusableElements = modalDialog.querySelectorAll(
+                'button:not(:disabled), [href], input:not(:disabled), [tabindex]:not([tabindex="-1"])'
+            );
+
+            const focusable = Array.from(focusableElements).filter(
+                element => !element.hasAttribute("hidden")
+            );
+
+            if (focusable.length === 0) {
+                event.preventDefault();
+                modalDialog.focus();
+                return;
+            }
+
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (
+                !event.shiftKey &&
+                document.activeElement === last
+            ) {
+                event.preventDefault();
+                first.focus();
+            }
+        }
+    });
+
+    /* ---------------------------------------
+       COPIAR CÓDIGO
+    --------------------------------------- */
+
+    async function copyTextFallback(text) {
+        const textarea = document.createElement("textarea");
+
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        let copied = false;
+
+        try {
+            copied = document.execCommand("copy");
+        } finally {
+            textarea.remove();
+        }
+
+        if (!copied) {
+            throw new Error("No se pudo copiar el código.");
+        }
+    }
+
+    copyButton.addEventListener("click", async () => {
+        if (!activeResource) return;
+
+        try {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(activeResource.code);
+            } else {
+                await copyTextFallback(activeResource.code);
+            }
+
+            copyStatus.textContent = "Código copiado correctamente.";
+        } catch (error) {
+            copyStatus.textContent =
+                "No fue posible copiarlo automáticamente. Selecciona el código y cópialo manualmente.";
+        }
+    });
+
+    /* ---------------------------------------
+       BUSCADOR
+    --------------------------------------- */
+
+    searchInput.addEventListener("input", () => {
+        renderTopics();
+    });
+
+    /* ---------------------------------------
+       INICIALIZACIÓN
+    --------------------------------------- */
+
+    renderTechnologies();
+    renderTopics();
+
+})();
